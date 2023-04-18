@@ -14,7 +14,9 @@ with open('palabras_clave.txt', 'r') as f:
         kw_list = row
 
 # extraer los datos de tendencia
-pytrend.build_payload(kw_list, timeframe='today 5-y')
+start_date = '2009-01-01'
+end_date = pd.Timestamp.today().strftime('%Y-%m-%d')
+pytrend.build_payload(kw_list, timeframe=f'{start_date} {end_date}')
 
 # Parada de dos segundos entre solicitudes
 time.sleep(2)
@@ -22,12 +24,8 @@ time.sleep(2)
 # Extraer los datos de tendencia
 trend_data = pytrend.interest_over_time()
 
-# Extraer los datos de tendencia por región
-region_data = pytrend.interest_by_region()
-
 # Mostrar los datos de tendencia en la consola
 print(trend_data)
-print(region_data)
 
 # Convertir los datos en un DataFrame de pandas
 df = pd.DataFrame(trend_data)
