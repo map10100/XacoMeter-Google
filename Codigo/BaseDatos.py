@@ -1,5 +1,7 @@
+import time
 import mysql.connector
 import csv
+from pytrends.request import TrendReq
 #conexion con el servidor
 conexion = mysql.connector.connect(
     host = "localhost",
@@ -24,5 +26,25 @@ cursor.execute("CREATE TABLE tendencias"
     "(fecha date NOT NULL,"
     "id INT NOT NULL,"
     "porcentaje INT NOT NULL,"
-    "FOREIGN KEY (id) REFERENCES monumentos(id),"
-    "PRIMARY KEY (fecha));")
+    "FOREIGN KEY (id) REFERENCES monumentos(id));")
+
+with open('palabras_clave.txt', 'r') as f:
+    reader = csv.reader(f)
+    kw_list = next(reader)
+#inserción de datos
+sql = "INSERT INTO monumentos (BICs) VALUES (%s)"
+for kw in kw_list:
+    val = (kw,)
+    cursor.execute(sql, val)
+conexion.commit()
+
+sql = "INSERT INTO tendencias (fecha, id, porcentaje) VALUES (%s, %s, %s)"
+pytrend = TrendReq(hl='es-ES', tz=360, retries=10)
+for kw in kw_list:
+    pytrend.build_payload([kw], timeframe='2009-01-01 2021-01-01')
+    time.sleep(2)
+    trend_data = pytrend.interest_over_time()
+    for index, row in trend_data.iterrows():
+        val = (index, kw_list.index(kw)+1, row[kw])
+        cursor.execute(sql, val)
+conexion.commit()
