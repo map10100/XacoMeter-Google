@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>web</title>
+    <style>
+      .boton{
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        display: inline-block;
+        font-size: 16px;
+      }
+      #cuadrado{
+        width: 300px;
+        height: 300px;
+        border-radius: 10px;
+        background-color: rgba(255, 255, 255, 0.3);
+        margin: 0 auto;
+        padding: 10px;
+        margin-top: 15%;
+      }
+      body {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('fondo.jpg');
+        background-size: cover;
+      }
+      form {
+        position: absolute; /* Establecemos la posición como absoluta */
+        top: 50%; /* Establecemos la mitad de arriba - (la mitad del alto del elemento) */
+        left: 50%; /* Establecemos la mitad de izquierda - (la mitad del ancho del elemento) */
+        transform: translate(-50%, -50%); /* Centramos el formulario */
+      }
+    </style>
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+
+  <body>
+    <div id="cuadrado">
+    <form action="registro.html">
+      <label for="usuario">Usuario:</label><br>
+      <input type="text" id="usuario"><br>
+      <label for="contraseña">Contraseña:</label><br>
+      <input type="text" id="contraseña"><br>
+      <input type="submit" class= "boton" value="Enviar">
+      <input type="submit" class= "boton" value="Registrarse"> 
+      <!-- <a href="link"> texto-->
+    </form>
+  </div>
+  </body>
+</html>
