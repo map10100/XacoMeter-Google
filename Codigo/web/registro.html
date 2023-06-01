@@ -2,21 +2,49 @@
 <html>
 <head>
   <title>Registro</title>
+  <link rel="stylesheet" href="estilos.css" /> 
+  <style>
+    img {
+      width: 25%; 
+      display: block; 
+      margin: auto;
+    }
+    #cuadrado{
+      border: #6a7075 2px solid;
+      width: 400px;
+      height: 550px;
+      border-radius: 10px;
+      background-color: rgba(255, 255, 255, 0.7);
+      margin: 0 auto;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    body {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('fondo2.jpg');
+      background-size: cover;
+    }
+    form {
+      position: absolute; 
+      top: 50%;
+      left: 50%; 
+      transform: translate(-50%, -50%); 
+    }
+  </style>
 </head>
 <body>
-  <h1>Registro</h1>
-  <form>
-    <label for="nombre">Nombre:</label>
-    <input type="text" id="nombre" name="nombre" required><br><br>
-    <label for="apellido">Apellido:</label>
-    <input type="text" id="apellido" name="apellido" required><br><br>
-    <label for="email">Correo electrónico:</label>
-    <input type="email" id="email" name="email" required><br><br>
-    <label for="username">Usuario:</label>
-    <input type="text" id="username" name="username" required><br><br>
-    <label for="password">Contraseña:</label>
-    <input type="password" id="password" name="password" required><br><br>
-    <input type="submit" value="Registrarse">
+  <div id="cuadrado">
+
+  <form action="registro_usuarios.php" method="post">
+    <img src="login.png"><br>
+    <input type="text" class= "entradaTexto" id="nombre" name="nombre" required value="nombre" onfocus="if(this.value=='nombre') this.value='';" onblur="if(this.value=='') this.value='nombre';"><br>
+    <input type="text" class= "entradaTexto" id="apellido" name="apellido" required value="apellido" onfocus="if(this.value=='apellido') this.value='';" onblur="if(this.value=='') this.value='apellido';"><br>
+    <input type="email" class= "entradaTexto" id="email" name="email" required value="email" onfocus="if(this.value=='email') this.value='';" onblur="if(this.value=='') this.value='email';"><br>
+    <input type="text" class= "entradaTexto" id="usuario" name="usuario" required value="usuario" onfocus="if(this.value=='usuario') this.value='';" onblur="if(this.value=='') this.value='usuario';"><br>
+    <input type="password" class= "entradaTexto" id="Contraseña"value="Contraseña" onfocus="if(this.value=='Contraseña') this.value='';" onblur="if(this.value=='') this.value='Contraseña';"><br>
+    <input type="submit" class="boton" value="Registrarse">
   </form>
+  </div>
 </body>
 </html>

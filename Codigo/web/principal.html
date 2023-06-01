@@ -1,8 +1,15 @@
+<?php
+$mysqli=new mysqli ('localhost', 'root','', 'xacometer')
+
+?>
+
+
+
 <!DOCTYPE html>
+
 <html lang="en">
   <head>
-    <title>web</title>
-    <link rel="stylesheet" href="estilos.css" /> 
+    <title>principal</title>
     <style>
       img {
         width: 25%; 
@@ -39,14 +46,24 @@
   </head>
 
   <body>
-    <div id="cuadrado">
     <form>
-      <img src="login.png"><br>
-      <input type="text" class="entradaTexto" id="usuario" value="Usuario" onfocus="if(this.value=='Usuario') this.value='';" onblur="if(this.value=='') this.value='Usuario';"><br>
-      <input type="text" class= "entradaTexto" id="contraseña"value="Contraseña" onfocus="if(this.value=='Contraseña') this.value='';" onblur="if(this.value=='') this.value='Contraseña';"><br>
-      <input type="submit" class="boton" value="Iniciar Sesión"><br>
-      <p>¿No tienes una cuenta? <a href="registro.html">Regístrate</a></p>
-    </form>
-  </div>
+        
+        <select id="desplegable" name="desplegable">
+          <option value="0">Selecciona:</option>
+
+          <?php
+          $query = $mysqli -> ("SELECT * FROM monumentos");
+          while ($valores =mysqli:fetch_array($query)){
+            echo '<option value ="'.$valores ['id'].'">'.$valores['monumentos'].'</option>'
+          }
+          ?>
+          <!-- https://mundocursos.online/como-mostrar-datos-mysql-en-lista-desplegable-select-en-php/ -->
+          
+        </select>
+        <input type="submit">
+      </form>
+
+
+
   </body>
 </html>
