@@ -2,6 +2,8 @@
 <html lang="en">
   <head>
     <title>Informacion</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/bootstrap.min.js"></script>
     <style>
       img {
         width: 25%; 
@@ -38,6 +40,14 @@
   </head>
 
   <body>
+  <div id="navbarContainer"></div>
+    <script>
+      fetch('navbar.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('navbarContainer').innerHTML = data;
+      });
+    </script>
         
       <?php
       $datosM =$_GET['desplegable'];

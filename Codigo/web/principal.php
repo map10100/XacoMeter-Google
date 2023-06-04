@@ -7,6 +7,9 @@ $mysqli=new mysqli ('localhost', 'root','', 'xacometer');
 <html lang="en">
   <head>
     <title>Principal</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/bootstrap.min.js"></script>
+
     <style>
       img {
         width: 25%; 
@@ -125,6 +128,14 @@ $mysqli=new mysqli ('localhost', 'root','', 'xacometer');
   </head>
 
   <body>
+  <div id="navbarContainer"></div>
+    <script>
+      fetch('navbar.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('navbarContainer').innerHTML = data;
+      });
+    </script>
     <div id="cuadrado">
     <div class="top">
         <ul class="cambio">
@@ -184,53 +195,32 @@ $mysqli=new mysqli ('localhost', 'root','', 'xacometer');
       
     <script>
   (function() {
-  var btnLi = document.querySelector(".btnli");
-  var btnOtroBoton = document.querySelector(".btnOtroBoton");
+    var btnLi=document.querySelector(".btnli");
+    
+    var formxMonu=document.querySelector(".form-xMonumento");
+    var formtodo=document.querySelector(".form-todo");
+    var todoInactivo=document.querySelector(".todo-inactivo");
+    var xMonumento=document.querySelector(".xMonumento-activo");
+
+    btnLi.addEventListener("click", function(){
+      var clases=xMonumento.classList;
+      var clases2=todoInactivo.classList;
   
-  var formxMonu = document.querySelector(".form-xMonumento");
-  var formtodo = document.querySelector(".form-todo");
-  var todoInactivo = document.querySelector(".todo-inactivo");
-  var xMonumento = document.querySelector(".xMonumento-activo");
-
-  btnLi.addEventListener("click", function() {
-    var clases = xMonumento.classList;
-    var clases2 = todoInactivo.classList;
-
-    formxMonu.classList.toggle("form-xMonumento-left");
-    formtodo.classList.toggle("form-todo-left");
-
-    if (clases.contains("xMonumento-activo") && clases2.contains("todo-inactivo")) {
-      clases.remove("xMonumento-activo");
-      clases.add("xMonumento-inactivo");
-      clases2.remove("todo-inactivo");
-      clases2.add("todo-activo");
-    } else {
-      clases.remove("xMonumento-inactivo");
-      clases.add("xMonumento-activo");
-      clases2.remove("todo-activo");
-      clases2.add("todo-inactivo");
-    }
-  });
-  
-  btnOtroBoton.addEventListener("click", function() {
-    var clases = xMonumento.classList;
-    var clases2 = todoInactivo.classList;
-
-    formxMonu.classList.toggle("form-xMonumento-left");
-    formtodo.classList.toggle("form-todo-left");
-
-    if (clases.contains("xMonumento-activo") && clases2.contains("todo-inactivo")) {
-      clases.remove("xMonumento-activo");
-      clases.add("xMonumento-inactivo");
-      clases2.remove("todo-inactivo");
-      clases2.add("todo-activo");
-    } else {
-      clases.remove("xMonumento-inactivo");
-      clases.add("xMonumento-activo");
-      clases2.remove("todo-activo");
-      clases2.add("todo-inactivo");
-    }
-  });
+      formxMonu.classList.toggle("form-xMonumento-left");
+      formtodo.classList.toggle("form-todo-left");
+      if (clases.contains("xMonumento-activo")
+      && clases2.contains("todo-inactivo")) {
+        clases.remove("xMonumento-activo");
+        clases.add("xMonumento-inactivo");
+        clases2.remove("todo-inactivo");
+        clases2.add("todo-activo");
+      } else {
+        clases.remove("xMonumento-inactivo");
+        clases.add("xMonumento-activo");
+        clases2.remove("todo-activo");
+        clases2.add("todo-inactivo");
+      }
+    });
 })();
 </script>
 

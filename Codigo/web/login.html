@@ -2,6 +2,8 @@
 <html lang="en">
   <head>
     <title>web</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="estilos.css" /> 
     <style>
       img {
@@ -39,6 +41,14 @@
   </head>
 
   <body>
+    <div id="navbarContainer"></div>
+    <script>
+      fetch('navbar.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('navbarContainer').innerHTML = data;
+      });
+    </script>
     <div id="cuadrado">
     <form>
       <img src="login.png"><br>
