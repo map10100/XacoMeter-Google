@@ -1,15 +1,7 @@
-<?php
-$mysqli=new mysqli ('localhost', 'root','', 'xacometer')
-
-?>
-
-
-
 <!DOCTYPE html>
-
 <html lang="en">
   <head>
-    <title>principal</title>
+    <title>Informacion</title>
     <style>
       img {
         width: 25%; 
@@ -30,7 +22,7 @@ $mysqli=new mysqli ('localhost', 'root','', 'xacometer')
       }
       
       body {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('fondo2.jpg');
+        background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('fondo.jpg');
         background-size: cover;
       }
       form {
@@ -46,24 +38,13 @@ $mysqli=new mysqli ('localhost', 'root','', 'xacometer')
   </head>
 
   <body>
-    <form>
         
-        <select id="desplegable" name="desplegable">
-          <option value="0">Selecciona:</option>
-
-          <?php
-          $query = $mysqli -> ("SELECT * FROM monumentos");
-          while ($valores =mysqli:fetch_array($query)){
-            echo '<option value ="'.$valores ['id'].'">'.$valores['monumentos'].'</option>'
-          }
-          ?>
-          <!-- https://mundocursos.online/como-mostrar-datos-mysql-en-lista-desplegable-select-en-php/ -->
-          
-        </select>
-        <input type="submit">
-      </form>
-
-
+      <?php
+      $datosM =$_GET['desplegable'];
+      $datosF =$_GET['desplegableFI'];
+            
+      echo "Monumento: " . $datosM . "Fecha: " . $datosF;
+      ?>
 
   </body>
 </html>
