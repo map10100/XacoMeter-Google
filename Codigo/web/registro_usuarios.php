@@ -7,7 +7,7 @@ $username=$_POST['usuario'];
 $contrasena=$_POST['Contraseña'];
 
 $conexion = mysqli_connect("localhost", "root", "", "usuarios");
-$consulta = "INSERT INTO usuarios(nombre, apellido, correo, username, contrasena) VALUES ('$nombre', '$apellido', '$correo', '$username', '$contrasena')";
+$consulta = "INSERT INTO usuarios(nombre, apellido, email, username, contrasena) VALUES ('$nombre', '$apellido', '$correo', '$username', '$contrasena')";
 $resultado = mysqli_query($conexion, $consulta);
 
 
@@ -26,7 +26,7 @@ if($conexion -> connect_errno){
 }
 
 mysqli_close($conexion);
-header("location: principal.html")
+header("location: principal.php")
 
 
 ?>
