@@ -1,8 +1,21 @@
+
+<?php
+
+$idioma = isset($_GET['lang']) ? $_GET['lang'] : 'es';
+
+$url_idioma = 'langs/' . $idioma . '.php';
+
+if(file_exists($url_idioma)){
+  include $url_idioma;
+  }
+  ?>
+
 <!DOCTYPE html>
 <html>
 <head>
   <title>Registro</title>
-  <link rel="stylesheet" href="estilos.css" /> 
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/bootstrap.min.js"></script>
   <style>
     img {
       width: 25%; 
@@ -34,6 +47,14 @@
   </style>
 </head>
 <body>
+  <div id="navbarContainer"></div>
+    <script>
+      fetch('navbar.php')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('navbarContainer').innerHTML = data;
+      });
+    </script>
   <div id="cuadrado">
 
   <form action="registro_usuarios.php" method="post">

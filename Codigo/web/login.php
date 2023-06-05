@@ -1,3 +1,14 @@
+<?php
+
+$idioma = isset($_GET['lang']) ? $_GET['lang'] : 'es';
+
+$url_idioma = 'langs/' . $idioma . '.php';
+
+if(file_exists($url_idioma)){
+  include $url_idioma;
+  }
+  ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -25,7 +36,7 @@
       }
       
       body {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('fondo2.jpg');
+        background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('fondo3.jpg');
         background-size: cover;
       }
       form {
@@ -43,7 +54,7 @@
   <body>
     <div id="navbarContainer"></div>
     <script>
-      fetch('navbar.html')
+      fetch('navbar.php')
       .then(response => response.text())
       .then(data => {
         document.getElementById('navbarContainer').innerHTML = data;
