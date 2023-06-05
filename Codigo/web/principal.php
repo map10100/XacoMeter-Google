@@ -1,4 +1,15 @@
 <?php
+
+$idioma = isset($_GET['lang']) ? $_GET['lang'] : 'es';
+
+$url_idioma = 'langs/' . $idioma . '.php';
+
+if(file_exists($url_idioma)){
+  include $url_idioma;
+  }
+  ?>
+
+<?php
 $mysqli=new mysqli ('localhost', 'root','', 'xacometer');
 
 ?>
@@ -130,7 +141,7 @@ $mysqli=new mysqli ('localhost', 'root','', 'xacometer');
   <body>
   <div id="navbarContainer"></div>
     <script>
-      fetch('navbar.html')
+      fetch('navbar.php')
       .then(response => response.text())
       .then(data => {
         document.getElementById('navbarContainer').innerHTML = data;
