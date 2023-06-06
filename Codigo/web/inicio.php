@@ -23,7 +23,7 @@ if(file_exists($url_idioma)){
         h1{
             position: absolute;
             top: 20%;
-            left: 40%;
+            left: 39%;
             font-size: 80px;
         }
         p{
@@ -36,16 +36,22 @@ if(file_exists($url_idioma)){
         }
         #login{
             position: absolute;
-            top: 50%;
-            left: 40%;
-            background-color: blueviolet;
+            height: 50px;
+            width: 200px;
+            top: 49%;
+            left: 36%;
+            border-radius: 6px;
+            background-color: transparent;
             
         }
         #registro{
             position: absolute;
-            top: 50%;
-            left: 55%;
-            background-color: aqua;
+            height: 50px;
+            width: 200px;
+            top: 49%;
+            left: 53%;
+            border-radius: 6px;
+            background-color: transparent;
         }
       img {
         width: 25%; 
@@ -76,8 +82,8 @@ if(file_exists($url_idioma)){
     <h1>Xacometer</h1>
     <p><?php echo $lang['texto']; ?></p>
     
-    <button type="button" id="login" onclick = "login()"><?php echo $lang['iniciar sesion']; ?></button>
-    <button type="button" id="registro" onclick = "registro()"><?php echo $lang['registro']; ?></button>
+    <button type="button" id="login" onclick = "login()" style="font-size: 20px;"><?php echo $lang['iniciar sesion']; ?></button>
+    <button type="button" id="registro" onclick = "registro()" style="font-size: 20px;"><?php echo $lang['registro']; ?></button>
 
     
     <script>
@@ -85,7 +91,7 @@ if(file_exists($url_idioma)){
             window.location.href = "login.php";            
         }
         function registro() {
-            window.location.href = "registro.html";
+            window.location.href = "registro.php";
             
         }
     </script>

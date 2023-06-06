@@ -66,7 +66,7 @@ if(file_exists($url_idioma)){
       <input type="text" class="entradaTexto" id="usuario" value="Usuario" onfocus="if(this.value=='Usuario') this.value='';" onblur="if(this.value=='') this.value='Usuario';"><br>
       <input type="text" class= "entradaTexto" id="contraseña"value="Contraseña" onfocus="if(this.value=='Contraseña') this.value='';" onblur="if(this.value=='') this.value='Contraseña';"><br>
       <input type="submit" class="boton" value="Iniciar Sesión"><br>
-      <p>¿No tienes una cuenta? <a href="registro.html">Regístrate</a></p>
+      <p>¿No tienes una cuenta? <a href="registro.php">Regístrate</a></p>
     </form>
   </div>
   </body>
