@@ -3931,6 +3931,7 @@ textarea.form-control-lg {
 
 .navbar {
   position: relative;
+  height: 50px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
