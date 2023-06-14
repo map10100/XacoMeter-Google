@@ -189,6 +189,21 @@ $mysqli=new mysqli ('localhost', 'root','', 'xacometer');
 
 
         </select>
+<!-- Desplegable fecha fin -->
+        <select id="desplegable_FechaF" name="desplegableFF">
+          <option disabled selected style="display:none;">
+          <?php echo $lang['fechaFinal']; ?>
+        </option>
+
+          <?php
+          $query3 = $mysqli->query("SELECT * FROM tendencias WHERE fecha > '$valores2'");
+          while ($valores3 = mysqli_fetch_array($query3)) {
+            echo '<option value="' . $valores3['fecha'] . '">' . $valores3['fecha'] . '</option>';
+          }
+          ?>
+
+
+        </select>
         
         <button type="submit"><?php echo $lang['buscar']; ?></button>
         

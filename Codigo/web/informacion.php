@@ -53,10 +53,11 @@
       <?php
       $datosM =$_GET['desplegable'];
       $datosF =$_GET['desplegableFI'];
+      $datosFF = $_GET['desplegableFF'];
             
 
       //esto es pa probar
-      echo "Monumento: " . $datosM . "Fecha: " . $datosF;
+      echo "Monumento: " . $datosM . "Fecha: " . $datosF . "Fecha Fin: " . $datosFF;
       ?>
 
         <!-- Grafico v -->
@@ -68,9 +69,9 @@
 
     <?php
      $conexion = mysqli_connect("localhost", "root", "", "xacometer");
-     $consulta = "SELECT fecha FROM tendencias WHERE fecha >= '$datosF'";
+     $consulta = "SELECT fecha FROM tendencias WHERE fecha >= '$datosF' AND fecha <='$datosFF' ";
      $resultado = mysqli_query($conexion, $consulta);
-     $consulta2 =  "SELECT tendencias.fecha, tendencias.porcentaje FROM tendencias INNER JOIN monumentos ON tendencias.id = monumentos.id WHERE tendencias.fecha >= '$datosF' AND monumentos.BICs = '$datosM'";
+     $consulta2 =  "SELECT tendencias.fecha, tendencias.porcentaje FROM tendencias INNER JOIN monumentos ON tendencias.id = monumentos.id WHERE tendencias.fecha >= '$datosF' AND fecha <='$datosFF' AND monumentos.BICs = '$datosM'";
      $resultado2 = mysqli_query ($conexion, $consulta2);
 
       $fechas = array();

@@ -13,6 +13,10 @@ $lang['registrate'] = 'Registrate';
 
 // Registro
 $lang['registro']= 'Registro';
+$lang['nombre']= 'Nombre';
+$lang['correo']= 'Correo';
+$lang['apellido']= 'Apellido';
+
 
 // NavBar
 $lang['cerrar sesion'] = 'Cerrar sesion';
@@ -35,6 +39,7 @@ $lang['busXMonu']= ' Busqueda por monumento';
 $lang['busTodo']= ' Todos los monumentos';
 $lang['select']= 'Selecciona un monumento';
 $lang['fechaInicial'] = 'Selecciona la fecha inicial:';
+$lang['fechaFinal'] = 'Selecciona la fecha final:';
 $lang['buscar'] = 'Buscar';
 
 ?>

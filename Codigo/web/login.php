@@ -13,7 +13,7 @@ if(file_exists($url_idioma)){
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>web</title>
+    <title><?php echo $lang['inicio de sesion'];?></title>
     
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="estilos.css"> 
@@ -66,10 +66,10 @@ if(file_exists($url_idioma)){
     <div id="cuadrado">
     <form method="post" action="login_usuarios.php" >
       <img src="login.jpg"><br>
-      <input type="text" class="entradaTexto" name="usuario" id="usuario" value="Usuario" onfocus="if(this.value=='Usuario') this.value='';" onblur="if(this.value=='') this.value='Usuario';"><br>
+      <input type="text" class="entradaTexto" name="usuario" id="usuario" value=<?php echo $lang ['usuario']; ?> onfocus="if(this.value=='Usuario') this.value='';" onblur="if(this.value=='') this.value='Usuario';"><br>
       <input type="password" class= "entradaTexto" name="contrasena" id="contrasena" value="Contraseña" onfocus="if(this.value=='Contraseña') this.value='';" onblur="if(this.value=='') this.value='Contraseña';"><br>
-      <input type="submit" class="boton" value="Iniciar Sesión"><br>
-      <p> <?php $lang['no tienes cuenta']?> <a href="registro.php"><?php $lang['registrate']?></a></p>
+      <input type="submit" class="boton" value=<?php echo $lang ['iniciar sesion']; ?>><br>
+      <p> <?php echo $lang['no tienes cuenta']; ?> <a href="registro.php"><?php echo $lang['registrate']; ?></a></p>
     </form>
   </div>
   </body>

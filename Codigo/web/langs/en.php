@@ -3,7 +3,7 @@
 $lang['inicio']= 'Homepage';
 $lang['texto'] = 'Welcome to Xacometer! In this website you can find out information about the searching trends about the "Camino de Santiago" monuments from Castilla y Leon.';
 $lang['iniciar sesion'] = 'Log in';
-$lang['registro'] = 'Sign up';
+$lang['registrarse'] = 'Sign up';
 // Login
 $lang['inicio de sesion']= 'Log In';
 $lang['usuario'] = 'User';
@@ -13,6 +13,10 @@ $lang['registrate'] = 'Sign up';
 
 // Registro
 $lang['registro']= 'Sign up';
+$lang['nombre']= 'Name';
+$lang['correo']= 'Email adress';
+$lang['apellido']= 'Surname';
+
 
 // NavBar
 $lang['cerrar sesion'] = 'Sign out';
@@ -35,6 +39,7 @@ $lang['busXMonu']= ' Search by monuments';
 $lang['busTodo']= ' All the monuments';
 $lang['selecciona']='Select a monument';
 $lang['fechaInicial'] = 'Select since when;';
+$lang['fechaFinal'] = 'Select until when;';
 $lang['buscar'] = 'Search';
 
 ?>
