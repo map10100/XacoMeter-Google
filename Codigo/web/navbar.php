@@ -1,5 +1,6 @@
 <?php
 
+
 $idioma = isset($_GET['lang']) ? $_GET['lang'] : 'es';
 
 $url_idioma = 'langs/' . $idioma . '.php';
@@ -31,14 +32,22 @@ if(file_exists($url_idioma)){
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#"style="color: white; font-size: 20px;margin-left: 30px"><?php echo $lang['hola ']; ?> usuari@</a>
+                <a class="nav-link active" aria-current="page" href="#" style="color: white; font-size: 20px; margin-left: 30px">
+                  <?php
+                  session_start();
+                  if (isset($_SESSION['username'])) {
+                    echo $lang['hola '] . ' ' . $_SESSION['username'];
+                  } else {
+                    echo $lang['hola '] . $lang['usuari@']; 
+                  }
+                  ?>
+                </a>
               </li>
               <li class="nav-item dropdown"style="margin-left: 1160px">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"style="color: white; font-size: 20px;"><?php echo $lang['idiomas'] ; ?></a>
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="?lang=es"><?php echo $lang['castellano']; ?></a></li>
                   <li><a class="dropdown-item" href="?lang=en"><?php echo $lang['ingles']; ?></a></li>
-                 
                 </ul>
               </li>
               <!-- if(Sesion iniciada==true){
@@ -49,7 +58,24 @@ if(file_exists($url_idioma)){
 
               <!-- el boton debe ir a la derecha -->
             <li action="inicio.php">
-              <button value="Cerrar Sesion" class="btn my-2 my-sm-0" type="submit"style= "width:150px; background-color: #CCCCCC; margin-left: 50px; font-size: 20px;"><?php echo $lang['cerrar sesion']; ?></button>
+            <button value="Cerrar Sesion" class="btn my-2 my-sm-0" type="submit" style="width: 170px; background-color: #CCCCCC; margin-left: 50px; font-size: 20px;"
+              <?php
+              if (isset($_SESSION['username'])) {
+                echo 'onclick="window.location.href=\'logout.php\'"';
+              } else {
+                echo 'onclick="';
+                session_destroy();
+                echo 'window.location.reload();"';
+              }
+              ?>>
+                <?php
+                if (isset($_SESSION['username'])) {
+                  echo $lang['cerrar sesion'];
+                } else {
+                  echo $lang['inicio de sesion'];
+                }
+                ?>
+              </button>
             </li>
             </ul>
           </div>
