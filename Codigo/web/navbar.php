@@ -7,6 +7,8 @@ $url_idioma = 'langs/' . $idioma . '.php';
 
 if(file_exists($url_idioma)){
   include $url_idioma;
+  }else {
+    echo 'Idioma no encontrado';
   }
   ?>
 
@@ -14,6 +16,56 @@ if(file_exists($url_idioma)){
 <html lang="en">
   <head>
     <style>
+      @media screen and (max-width:991px) {
+        .idiomas{
+          margin-left:29px;
+          
+
+        }
+        
+        
+        .btn{
+          margin-left: 10px;
+          background-color:transparent;
+          color:#fff;
+        }
+        .boton:hover{
+        color:red;
+      }
+      }
+      @media screen and (min-width:992px) {
+        .idiomas{
+          margin-left: 94%;
+          margin-top: 1%: 
+      }
+      
+      .boton{
+        background-color: #CCCCCC;
+      }
+     }
+     @media screen and (min-width:1040px) {
+        .idiomas{
+        margin-left: 106%;
+      }
+    }
+    @media screen and (min-width:1327px) {
+        .idiomas{
+        margin-left: 171%;
+      }
+    }
+     
+    @media screen and (min-width:1860px) {
+      .idiomas{
+        margin-left: 1160px;
+        margin-right: 90px;
+        
+      }
+      .boton{
+        background-color: #CCCCCC;
+      }
+      
+    }
+
       
       </style>
     <title>navbar</title>
@@ -23,14 +75,14 @@ if(file_exists($url_idioma)){
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark" style="height: 70px;">
+    <nav class="navbar navbar-dark navbar-expand-lg bg-body-tertiary bg-dark" style="height: 70px;">
         <div class="container-fluid">
           <a class="navbar-brand" href="inicio.php" style="color: white; font-size: 25px;margin-left: 20px;">XACOMETER</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav me-auto mb-2 " style="background-color:#212529">
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="#" style="color: white; font-size: 20px; margin-left: 30px">
                   <?php
@@ -38,16 +90,16 @@ if(file_exists($url_idioma)){
                   if (isset($_SESSION['username'])) {
                     echo $lang['hola '] . ' ' . $_SESSION['username'];
                   } else {
-                    echo $lang['hola '] . $lang['usuari@']; 
+                    echo $lang['hola '] .  $lang['usuari@']; 
                   }
                   ?>
                 </a>
               </li>
-              <li class="nav-item dropdown"style="margin-left: 1160px">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"style="color: white; font-size: 20px;"><?php echo $lang['idiomas'] ; ?></a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="?lang=es"><?php echo $lang['castellano']; ?></a></li>
-                  <li><a class="dropdown-item" href="?lang=en"><?php echo $lang['ingles']; ?></a></li>
+              <li class="idiomas nav-item dropdown ml-auto" >
+                <a class="nav-link dropdown-toggle" href="#" role="button" style="color: white; font-size: 20px;" data-bs-toggle="dropdown" aria-expanded="false"><?php echo $lang['idiomas'] ; ?></a>
+                <ul class="dropdown-menu" style="background-color:#212529">
+                  <li><a class="dropdown-item" style="color: #fff" href="?lang=es"><?php echo $lang['castellano']; ?></a></li>
+                  <li><a class="dropdown-item" style="color: #fff" href="?lang=en"><?php echo $lang['ingles']; ?></a></li>
                 </ul>
               </li>
               <!-- if(Sesion iniciada==true){
@@ -58,14 +110,14 @@ if(file_exists($url_idioma)){
 
               <!-- el boton debe ir a la derecha -->
             <li action="inicio.php">
-            <button value="Cerrar Sesion" class="btn my-2 my-sm-0" type="submit" style="width: 170px; background-color: #CCCCCC; margin-left: 50px; font-size: 20px;"
+            <button value="Cerrar Sesion" class="boton btn my-2 my-sm-0" type="submit" style="width: 170px;  font-size: 20px;"
               <?php
               if (isset($_SESSION['username'])) {
                 echo 'onclick="window.location.href=\'logout.php\'"';
               } else {
                 echo 'onclick="';
                 session_destroy();
-                echo 'window.location.reload();"';
+                echo 'window.location.href=\'login.php\'"';
               }
               ?>>
                 <?php

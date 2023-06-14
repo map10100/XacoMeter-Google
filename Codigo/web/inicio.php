@@ -17,9 +17,95 @@ if(file_exists($url_idioma)){
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="js/bootstrap.min.js"></script>
     
-    <link href="langs/en.php">
-    <link href="langs/es.php">
+    
     <style>
+      @media screen and (max-width:991px) {
+
+        h1{
+            position: absolute;
+            top: 28%;
+            left: 35%;
+            font-size: 80px;
+        }
+        p{
+            position: absolute;
+            top: 45%;
+            left: 33%;
+            width: 40%;
+            font-size: 20px;
+            text-align: center;
+        }
+        #login{
+            position: absolute;
+            height: 50px;
+            width: 150px;
+            top: 69%;
+            left: 36%;
+            border-radius: 6px;
+            background-color: transparent;
+            
+        }
+        #registro{
+            position: absolute;
+            height: 50px;
+            width: 150px;
+            top: 69%;
+            left: 55%;
+            border-radius: 6px;
+            background-color: transparent;
+        }
+      
+      body {
+        background-image: url('fondo3.jpg');
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: center;
+      } 
+      }
+      @media screen and (min-width:992px) {
+
+h1{
+    position: absolute;
+    top: 28%;
+    left: 35%;
+    font-size: 80px;
+}
+p{
+    position: absolute;
+    top: 45%;
+    left: 33%;
+    width: 40%;
+    font-size: 20px;
+    text-align: center;
+}
+#login{
+    position: absolute;
+    height: 50px;
+    width: 130px;
+    top: 70%;
+    left: 36%;
+    border-radius: 6px;
+    background-color: transparent;
+    
+}
+#registro{
+    position: absolute;
+    height: 50px;
+    width: 125px;
+    top: 70%;
+    left: 55%;
+    border-radius: 6px;
+    background-color: transparent;
+}
+
+body {
+background-image: url('fondo3.jpg');
+background-size: cover;
+background-attachment: fixed;
+background-position: center;
+} 
+}
+      @media screen and (min-width: 1500px) {
         h1{
             position: absolute;
             top: 20%;
@@ -53,21 +139,16 @@ if(file_exists($url_idioma)){
             border-radius: 6px;
             background-color: transparent;
         }
-      img {
-        width: 25%; 
-        display: block; 
-        margin: auto;
-      }
+      
       body {
         background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('fondo3.jpg');
         background-size: cover;
+        background-attachment: fixed;
+        
       }
-      form {
-        position: absolute; 
-        top: 50%;
-        left: 50%; 
-        transform: translate(-50%, -50%); 
       }
+        
+      
     </style>
     </head>
     <body>

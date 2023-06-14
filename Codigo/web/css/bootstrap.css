@@ -3964,6 +3964,7 @@ textarea.form-control-lg {
   flex-direction: column;
   padding-left: 0;
   margin-bottom: 0;
+  background-color: #212529 ;
   list-style: none;
 }
 .navbar-nav .nav-link {
@@ -3992,6 +3993,7 @@ textarea.form-control-lg {
   background-color: transparent;
   border: 1px solid transparent;
   border-radius: 0.25rem;
+  border-color: #0dcaf0;
   transition: box-shadow 0.15s ease-in-out;
 }
 @media (prefers-reduced-motion: reduce) {
