@@ -13,8 +13,9 @@ if(file_exists($url_idioma)){
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Registro</title>
+  <title><?php $lang['registro']?></title>
   <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="estilos.css" > 
     <script src="js/bootstrap.min.js"></script>
   <style>
     img {
@@ -58,7 +59,7 @@ if(file_exists($url_idioma)){
   <div id="cuadrado">
 
   <form action="registro_usuarios.php" method="post">
-    <img src="login.png"><br>
+    <img src="login.jpg"><br>
     <input type="text" class= "entradaTexto" id="nombre" name="nombre" required value="nombre" onfocus="if(this.value=='nombre') this.value='';" onblur="if(this.value=='') this.value='nombre';"><br>
     <input type="text" class= "entradaTexto" id="apellido" name="apellido" required value="apellido" onfocus="if(this.value=='apellido') this.value='';" onblur="if(this.value=='') this.value='apellido';"><br>
     <input type="email" class= "entradaTexto" id="email" name="email" required value="email" onfocus="if(this.value=='email') this.value='';" onblur="if(this.value=='') this.value='email';"><br>

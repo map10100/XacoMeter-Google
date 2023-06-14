@@ -1,5 +1,6 @@
 <?php
 
+
 $idioma = isset($_GET['lang']) ? $_GET['lang'] : 'es';
 
 $url_idioma = 'langs/' . $idioma . '.php';
@@ -13,9 +14,11 @@ if(file_exists($url_idioma)){
 <html lang="en">
   <head>
     <title>web</title>
+    
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="estilos.css"> 
     <script src="js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="estilos.css" /> 
+    
     <style>
       img {
         width: 25%; 
@@ -23,14 +26,14 @@ if(file_exists($url_idioma)){
         margin: auto;
       }
       #cuadrado{
-        border: #6a7075 2px solid;
-        width: 400px;
-        height: 400px;
-        border-radius: 10px;
-        background-color: rgba(255, 255, 255, 0.7);
+        border: black 2px solid;
+        width: 25%;
+        height: 50%;
+        border-radius: 2%;
+        background-color: transparent;
         margin: 0 auto;
         position: absolute;
-        top: 50%;
+        top: 43%;
         left: 50%;
         transform: translate(-50%, -50%);
       }
@@ -61,12 +64,12 @@ if(file_exists($url_idioma)){
       });
     </script>
     <div id="cuadrado">
-    <form>
-      <img src="login.png"><br>
-      <input type="text" class="entradaTexto" id="usuario" value="Usuario" onfocus="if(this.value=='Usuario') this.value='';" onblur="if(this.value=='') this.value='Usuario';"><br>
-      <input type="text" class= "entradaTexto" id="contraseña"value="Contraseña" onfocus="if(this.value=='Contraseña') this.value='';" onblur="if(this.value=='') this.value='Contraseña';"><br>
+    <form method="post" action="login_usuarios.php" >
+      <img src="login.jpg"><br>
+      <input type="text" class="entradaTexto" name="usuario" id="usuario" value="Usuario" onfocus="if(this.value=='Usuario') this.value='';" onblur="if(this.value=='') this.value='Usuario';"><br>
+      <input type="password" class= "entradaTexto" name="contrasena" id="contrasena" value="Contraseña" onfocus="if(this.value=='Contraseña') this.value='';" onblur="if(this.value=='') this.value='Contraseña';"><br>
       <input type="submit" class="boton" value="Iniciar Sesión"><br>
-      <p>¿No tienes una cuenta? <a href="registro.php">Regístrate</a></p>
+      <p> <?php $lang['no tienes cuenta']?> <a href="registro.php"><?php $lang['registrate']?></a></p>
     </form>
   </div>
   </body>
