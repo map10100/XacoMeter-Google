@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Informacion</title>
+    <title><?php $lang['informacion'] ?></title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="js/bootstrap.min.js"></script>
     <style>
@@ -53,6 +54,8 @@
       $datosM =$_GET['desplegable'];
       $datosF =$_GET['desplegableFI'];
             
+
+      //esto es pa probar
       echo "Monumento: " . $datosM . "Fecha: " . $datosF;
       ?>
 
@@ -60,18 +63,30 @@
         <canvas id="Grafico"></canvas>
         <script>
 
-    var porcentaje =  [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
+    
 
 
     <?php
      $conexion = mysqli_connect("localhost", "root", "", "xacometer");
      $consulta = "SELECT fecha FROM tendencias WHERE fecha >= '$datosF'";
      $resultado = mysqli_query($conexion, $consulta);
+     $consulta2 =  "SELECT tendencias.fecha, tendencias.porcentaje FROM tendencias INNER JOIN monumentos ON tendencias.id = monumentos.id WHERE tendencias.fecha >= '$datosF' AND monumentos.BICs = '$datosM'";
+     $resultado2 = mysqli_query ($conexion, $consulta2);
 
       $fechas = array();
       while ($fila =mysqli_fetch_assoc($resultado)){
         $fechas[] = $fila['fecha'];
       }
+
+      $fechas2 = array();
+      $porcentajes = array();
+      while ($fila2 = mysqli_fetch_assoc($resultado2)){
+        $fechas2[] = $fila2['fecha'];
+        $porcentaje[] = $fila2['porcentaje'];
+
+      }
+      
+
       mysqli_close($conexion);
       ?>
 
@@ -87,8 +102,8 @@
       data: {
         labels: fechasPosteriores,
         datasets: [{
-          label: 'Porcentaje',
-          data: porcentaje,
+          label: 'Porcentajes',
+          data: <?php echo json_encode ($porcentaje); ?>,
           backgroundColor: 'rgba(0,0,0)'
         }]
       },

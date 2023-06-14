@@ -4,9 +4,11 @@ $lang['inicio']= 'Inicio';
 $lang['texto'] = '¡Bienvenid@ a Xacometer! En esta web podrás encontrar información sobre las tendencias de búsqueda de los monumentos del camino de santiago de Castilla y León.';
 $lang['iniciar sesion'] = 'Iniciar sesion';
 $lang['registrarse'] = 'Registrarse';
-
 // Login
 $lang['inicio de sesion']= 'Inicio de sesion';
+$lang['usuario'] = 'Usuario';
+$lang['no tienes cuenta'] = '¿No tienes una cuenta?';
+$lang['registrate'] = 'Registrate';
 
 
 // Registro
@@ -18,14 +20,21 @@ $lang['castellano'] = 'Castellano';
 $lang['ingles'] = 'Ingles';
 $lang['hola '] = 'Hola ';
 $lang['idiomas'] = 'Idiomas';
+$lang['usuari@'] = 'usuari@';
 
 
 // Informacion
 $lang['informacion'] = 'Informacion';
+$lang['porcentajes'] = 'Porcentajes';
 
 
 
 // Principal
-$lang['inicio']= 'Inicio';
+$lang['principal']= 'Principal';
+$lang['busXMonu']= ' Busqueda por monumento';
+$lang['busTodo']= ' Todos los monumentos';
+$lang['select']= 'Selecciona un monumento';
+$lang['fechaInicial'] = 'Selecciona la fecha inicial:';
+$lang['buscar'] = 'Buscar';
 
 ?>

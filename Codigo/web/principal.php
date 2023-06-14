@@ -17,7 +17,7 @@ $mysqli=new mysqli ('localhost', 'root','', 'xacometer');
 
 <html lang="en">
   <head>
-    <title>Principal</title>
+    <title><?php echo $lang['principal']; ?></title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="js/bootstrap.min.js"></script>
 
@@ -97,8 +97,8 @@ $mysqli=new mysqli ('localhost', 'root','', 'xacometer');
       form {
         width: 430px;
   
-	font-size: 16px;
-	font-weight: 300;
+	      font-size: 16px;
+	      font-weight: 300;
         position: absolute; 
         top: 50%; 
         left: 50%; 
@@ -150,14 +150,20 @@ $mysqli=new mysqli ('localhost', 'root','', 'xacometer');
     <div id="cuadrado">
     <div class="top">
         <ul class="cambio">
-          <li class="xMonumento-activo"><a class="btnli">Buscar x monumento</a></li>
-          <li class="todo-inactivo"><a class="btnli">Todos los monumentos</a></li>
+          <li class="xMonumento-activo"><a class="btnli">
+            <?php echo $lang['busXMonu']; ?>
+          </a></li>
+          <li class="todo-inactivo"><a class="btnli">
+            <?php echo $lang['busTodo']; ?>
+          </a></li>
         </ul>
       </div>
     <form method="GET" action="informacion.php" class="form-xMonumento">
         <!-- Desplegable MOnumentos -->
         <select id="desplegable_Nombre" name="desplegable">
-          <option disabled selected style="display:none;">Selecciona:</option>
+          <option disabled selected style="display:none;">
+          <?php echo $lang['select']; ?>
+        </option>
 
           <?php
           $query = $mysqli->query("SELECT * FROM monumentos");
@@ -170,7 +176,9 @@ $mysqli=new mysqli ('localhost', 'root','', 'xacometer');
           
           <!-- Desplegable fecha Inicio -->
         <select id="desplegable_FechaI" name="desplegableFI">
-          <option disabled selected style="display:none;">Selecciona fecha inicial:</option>
+          <option disabled selected style="display:none;">
+          <?php echo $lang['fechaInicial']; ?>
+        </option>
 
           <?php
           $query2 = $mysqli->query("SELECT * FROM tendencias");
@@ -182,14 +190,20 @@ $mysqli=new mysqli ('localhost', 'root','', 'xacometer');
 
         </select>
         
-        <button type="submit">Buscar</button>
+        <button type="submit"><?php echo $lang['buscar']; ?></button>
         
     </form>
 
     <form method="GET" action="informacion_todo.php" class="form-todo">
+
+
+
+
       <!-- Desplegable fecha Inicio -->
       <select id="desplegable_FechaI" name="desplegableFI">
-          <option disabled selected style="display:none;">Selecciona fecha inicial:</option>
+          <option disabled selected style="display:none;">
+            <?php $lang['fechaInicial']; ?>
+        </option>
 
           <?php
           $query2 = $mysqli->query("SELECT * FROM tendencias");
@@ -206,14 +220,15 @@ $mysqli=new mysqli ('localhost', 'root','', 'xacometer');
       
     <script>
   (function() {
-    var btnLi=document.querySelector(".btnli");
+    var btnLiElements=document.querySelectorAll(".btnli");
     
     var formxMonu=document.querySelector(".form-xMonumento");
     var formtodo=document.querySelector(".form-todo");
     var todoInactivo=document.querySelector(".todo-inactivo");
     var xMonumento=document.querySelector(".xMonumento-activo");
 
-    btnLi.addEventListener("click", function(){
+    btnLiElements.forEach(function(btnLi){
+      btnLi.addEventListener("click", function(){
       var clases=xMonumento.classList;
       var clases2=todoInactivo.classList;
   
@@ -232,6 +247,8 @@ $mysqli=new mysqli ('localhost', 'root','', 'xacometer');
         clases2.add("todo-inactivo");
       }
     });
+    })
+    
 })();
 </script>
 
