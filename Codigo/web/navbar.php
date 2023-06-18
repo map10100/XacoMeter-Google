@@ -54,7 +54,7 @@ if(file_exists($url_idioma)){
       }
     }
      
-    @media screen and (min-width:1860px) {
+    @media screen and (min-width:1850px) {
       .idiomas{
         margin-left: 1160px;
         margin-right: 90px;

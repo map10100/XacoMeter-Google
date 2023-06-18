@@ -1,10 +1,63 @@
+<?php
+require_once ('../fpdf185/fpdf.php');
+// esto es el codigo del generador del pdf
+      if( isset($_POST["descargar_pdf"])){
+
+$conexion = mysqli_connect("localhost", "root", "", "xacometer");
+      
+$sql = "SELECT tendencias.fecha, tendencias.porcentaje, monumentos.BICs FROM tendencias JOIN monumentos ON tendencias.id = monumentos.id";
+$result = $conexion->query($sql);
+
+
+$pdf = new FPDF();
+$pdf->ADDPage();
+
+// Esto lo modificas tu
+$pdf->SetFont('Arial', 'B', 14);
+$pdf->Cell(90, 10, 'Columna 1', 1);
+$pdf->Cell(40, 10, 'Columna 2', 1);
+$pdf->Cell(40, 10, 'Columna 3', 1);
+$pdf->Ln();
+
+
+
+if ($result->num_rows>0){
+  while ($row = $result->fetch_assoc()){
+    // Lo mismo
+    $pdf->SetFont('Arial', '', 12);
+    $pdf->Cell(90, 10, $row['BICs'], 1);
+    $pdf->Cell(40, 10, $row['fecha'], 1);
+    $pdf->Cell(40, 10, $row['porcentaje'], 1);
+    $pdf->Ln();
+  }
+
+}
+
+    $filename = "datos.pdf";
+    $pdf->Output($filename, 'F');
+
+
+    header("Content-Disposition: attachment; filename=$filename");
+    header("Content-Type: application/pdf");
+    header("Content-Length: " . filesize($filename));
+    readfile($filename);
+
+    unlink($filename);
+    $conexion->close();
+}
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title><?php $lang['informacion'] ?></title>
+    <title><?php echo $lang['informacion'] ?></title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="js/bootstrap.min.js"></script>
+    
     <style>
       img {
         width: 25%; 
@@ -49,7 +102,11 @@
         document.getElementById('navbarContainer').innerHTML = data;
       });
     </script>
-        
+    
+    <form method="POST">
+    
+    <button type="submit" name="descargar_pdf">Descargar PDF</button>
+        <!--Recibe los datos -->
       <?php
       $datosM =$_GET['desplegable'];
       $datosF =$_GET['desplegableFI'];
@@ -57,27 +114,24 @@
             
 
       //esto es pa probar
-      echo "Monumento: " . $datosM . "Fecha: " . $datosF . "Fecha Fin: " . $datosFF;
+      echo "Monumento: " . $datosM . " " . "Fecha: " . $datosF . " " . "Fecha Fin: " . $datosFF;
       ?>
+
+      
+    
 
         <!-- Grafico v -->
         <canvas id="Grafico"></canvas>
         <script>
 
-    
 
-
-    <?php
+  <?php
      $conexion = mysqli_connect("localhost", "root", "", "xacometer");
-     $consulta = "SELECT fecha FROM tendencias WHERE fecha >= '$datosF' AND fecha <='$datosFF' ";
-     $resultado = mysqli_query($conexion, $consulta);
-     $consulta2 =  "SELECT tendencias.fecha, tendencias.porcentaje FROM tendencias INNER JOIN monumentos ON tendencias.id = monumentos.id WHERE tendencias.fecha >= '$datosF' AND fecha <='$datosFF' AND monumentos.BICs = '$datosM'";
+     
+     $consulta2 =  "SELECT  tendencias.fecha, tendencias.porcentaje FROM tendencias JOIN monumentos ON tendencias.id = monumentos.id WHERE monumentos.BICs = '$datosM' AND tendencias.fecha >= '$datosF' AND fecha <='$datosFF'";
      $resultado2 = mysqli_query ($conexion, $consulta2);
 
-      $fechas = array();
-      while ($fila =mysqli_fetch_assoc($resultado)){
-        $fechas[] = $fila['fecha'];
-      }
+      
 
       $fechas2 = array();
       $porcentajes = array();
@@ -91,7 +145,7 @@
       mysqli_close($conexion);
       ?>
 
-    var fechasPosteriores = <?php echo json_encode($fechas); ?>;
+    var fechasPosteriores = <?php echo json_encode($fechas2); ?>;
 
     fechasPosteriores.sort(function(a, b){
       return new Date(a) - new Date(b);
@@ -103,7 +157,7 @@
       data: {
         labels: fechasPosteriores,
         datasets: [{
-          label: 'Porcentajes',
+          label: 'Tendencias',
           data: <?php echo json_encode ($porcentaje); ?>,
           backgroundColor: 'rgba(0,0,0)'
         }]

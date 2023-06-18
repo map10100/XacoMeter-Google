@@ -5,12 +5,12 @@ $nombre =$_POST['nombre'];
 $apellido =$_POST['apellido'];
 $correo=$_POST['email'];
 $username=$_POST['usuario'];
-$contrasena=$_POST['Contraseña'];
+$contrasena=$_POST['contrasena'];
 
-$contrasenaHash = password_hash($contrasena, PASSWORD_DEFAULT);
-
+// $contrasenaHash = password_hash($contrasena, PASSWORD_DEFAULT);
+// $contrasenaHash en la consulta
 $conexion = new mysqli("localhost", "root", "", "usuarios");
-$consulta = "INSERT INTO usuarios(nombre, apellido, email, username, contrasena) VALUES ('$nombre', '$apellido', '$correo', '$username', '$contrasenaHash')";
+$consulta = "INSERT INTO usuarios(nombre, apellido, email, username, contrasena) VALUES ('$nombre', '$apellido', '$correo', '$username', '$contrasena')";
 $resultado = mysqli_query($conexion, $consulta);
 
 
@@ -29,6 +29,8 @@ if($conexion -> connect_error){
 }
 
 mysqli_close($conexion);
+session_start();
+$_SESSION['username'] = $username;
 header("location: principal.php")
 
 

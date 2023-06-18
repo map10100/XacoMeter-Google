@@ -209,26 +209,26 @@ $mysqli=new mysqli ('localhost', 'root','', 'xacometer');
         
     </form>
 
-    <form method="GET" action="informacion_todo.php" class="form-todo">
+    <form method="GET" action="informacion2.php" class="form-todo">
 
-
-
-
-      <!-- Desplegable fecha Inicio -->
-      <select id="desplegable_FechaI" name="desplegableFI">
+      <!-- Desplegable2 fecha Inicio -->
+      <select id="desplegable2_FechaI" name="desplegableTFI">
           <option disabled selected style="display:none;">
             <?php $lang['fechaInicial']; ?>
         </option>
 
           <?php
-          $query2 = $mysqli->query("SELECT * FROM tendencias");
-          while ($valores2 = mysqli_fetch_array($query2)) {
-            echo '<option value="' . $valores2['fecha'] . '">' . $valores2['fecha'] . '</option>';
+          $queryT = $mysqli->query("SELECT * FROM tendencias");
+          while ($valoresT = mysqli_fetch_array($queryT)) {
+            echo '<option value="' . $valoresT['fecha'] . '">' . $valoresT['fecha'] . '</option>';
           }
           ?>
 
 
         </select>
+
+        <button type="submit"><?php echo $lang['buscar']; ?></button>
+
     </form>
     </div>
 

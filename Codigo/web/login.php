@@ -66,8 +66,8 @@ if(file_exists($url_idioma)){
     <div id="cuadrado">
     <form method="post" action="login_usuarios.php" >
       <img src="login.jpg"><br>
-      <input type="text" class="entradaTexto" name="usuario" id="usuario" value=<?php echo $lang ['usuario']; ?> onfocus="if(this.value=='Usuario') this.value='';" onblur="if(this.value=='') this.value='Usuario';"><br>
-      <input type="password" class= "entradaTexto" name="contrasena" id="contrasena" value="Contraseña" onfocus="if(this.value=='Contraseña') this.value='';" onblur="if(this.value=='') this.value='Contraseña';"><br>
+      <input type="text" class="entradaTexto" name="usuario" id="usuario" placeholder="<?php echo $lang ['usuario']; ?>"><br>
+      <input type="password" class= "entradaTexto" name="contrasena" id="contrasena" placeholder="Contraseña"><br>
       <input type="submit" class="boton" value=<?php echo $lang ['iniciar sesion']; ?>><br>
       <p> <?php echo $lang['no tienes cuenta']; ?> <a href="registro.php"><?php echo $lang['registrate']; ?></a></p>
     </form>

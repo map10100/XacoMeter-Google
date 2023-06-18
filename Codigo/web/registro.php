@@ -60,11 +60,11 @@ if(file_exists($url_idioma)){
 
   <form action="registro_usuarios.php" method="post">
     <img src="login.jpg"><br>
-    <input type="text" class= "entradaTexto" id="nombre" name="nombre" required value=<?php echo $lang ['nombre']; ?> onfocus="if(this.value=='nombre') this.value='';" onblur="if(this.value=='') this.value='nombre';"><br>
-    <input type="text" class= "entradaTexto" id="apellido" name="apellido" required value=<?php echo $lang ['apellido']; ?> onfocus="if(this.value=='apellido') this.value='';" onblur="if(this.value=='') this.value='apellido';"><br>
-    <input type="email" class= "entradaTexto" id="email" name="email" required value=<?php echo $lang ['correo']; ?> onfocus="if(this.value=='email') this.value='';" onblur="if(this.value=='') this.value='email';"><br>
-    <input type="text" class= "entradaTexto" id="usuario" name="usuario" required value=<?php echo $lang ['usuario']; ?> onfocus="if(this.value=='usuario') this.value='';" onblur="if(this.value=='') this.value='usuario';"><br>
-    <input type="password" class= "entradaTexto" id="Contraseña"value="Contraseña" onfocus="if(this.value=='Contraseña') this.value='';" onblur="if(this.value=='') this.value='Contraseña';"><br>
+    <input type="text" class= "entradaTexto" id="nombre" name="nombre" placeholder="<?php echo $lang ['nombre']; ?>"><br>
+    <input type="text" class= "entradaTexto" id="apellido" name="apellido" placeholder="<?php echo $lang ['apellido']; ?>"><br>
+    <input type="email" class= "entradaTexto" id="email" name="email" placeholder="<?php echo $lang ['correo']; ?>"><br>
+    <input type="text" class= "entradaTexto" id="usuario" name="usuario" placeholder="<?php echo $lang ['usuario']; ?>"><br>
+    <input type="password" class= "entradaTexto" id="contrasena" name="contrasena" placeholder="Contrasena"><br>
     <input type="submit" class="boton" value= <?php echo $lang['registro']; ?>>
   </form>
   </div>
