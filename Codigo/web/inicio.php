@@ -1,12 +1,22 @@
 <?php
 
-$idioma = isset($_GET['lang']) ? $_GET['lang'] : 'es';
 
+// Verificar si hay un idioma seleccionado en la variable de sesión
+if (isset($_SESSION['idioma'])) {
+  $idioma = $_SESSION['idioma'];
+} else {
+  // Si no hay un idioma seleccionado, establecer un idioma predeterminado
+  $idioma = 'es';
+}
+
+// Incluir el archivo de idioma correspondiente
 $url_idioma = 'langs/' . $idioma . '.php';
 
-if(file_exists($url_idioma)){
+if (file_exists($url_idioma)) {
   include $url_idioma;
-  }
+} else {
+  echo 'Idioma no encontrado';
+}
   ?>
 
 
@@ -64,47 +74,47 @@ if(file_exists($url_idioma)){
       }
       @media screen and (min-width:992px) {
 
-h1{
-    position: absolute;
-    top: 28%;
-    left: 35%;
-    font-size: 80px;
-}
-p{
-    position: absolute;
-    top: 45%;
-    left: 33%;
-    width: 40%;
-    font-size: 20px;
-    text-align: center;
-}
-#login{
-    position: absolute;
-    height: 50px;
-    width: 130px;
-    top: 70%;
-    left: 36%;
-    border-radius: 6px;
-    background-color: transparent;
-    
-}
-#registro{
-    position: absolute;
-    height: 50px;
-    width: 125px;
-    top: 70%;
-    left: 55%;
-    border-radius: 6px;
-    background-color: transparent;
-}
+        h1{
+            position: absolute;
+            top: 28%;
+            left: 35%;
+            font-size: 80px;
+        }
+        p{
+            position: absolute;
+            top: 45%;
+            left: 33%;
+            width: 40%;
+            font-size: 20px;
+            text-align: center;
+        }
+        #login{
+            position: absolute;
+            height: 50px;
+            width: 130px;
+            top: 70%;
+            left: 36%;
+            border-radius: 6px;
+            background-color: transparent;
+            
+        }
+        #registro{
+            position: absolute;
+            height: 50px;
+            width: 125px;
+            top: 70%;
+            left: 55%;
+            border-radius: 6px;
+            background-color: transparent;
+        }
 
-body {
-background-image: url('fondo3.jpg');
-background-size: cover;
-background-attachment: fixed;
-background-position: center;
-} 
-}
+        body {
+        background-image: url('fondo3.jpg');
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: center;
+        } 
+        }
       @media screen and (min-width: 1500px) {
         h1{
             position: absolute;
@@ -140,12 +150,12 @@ background-position: center;
             background-color: transparent;
         }
       
-      body {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('fondo3.jpg');
-        background-size: cover;
-        background-attachment: fixed;
-        
-      }
+        body {
+          background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('fondo3.jpg');
+          background-size: cover;
+          background-attachment: fixed;
+          
+        }
       }
         
       
@@ -153,13 +163,11 @@ background-position: center;
     </head>
     <body>
         <div id="navbarContainer"></div>
-    <script>
-      fetch('navbar.php')
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('navbarContainer').innerHTML = data;
-      });
-    </script>
+        <?php
+    
+    include 'navbar.php';
+    
+    ?>
     <h1>Xacometer</h1>
     <p><?php echo $lang['texto']; ?></p>
     

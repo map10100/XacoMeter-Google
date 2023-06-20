@@ -7,6 +7,7 @@ $lang['registrarse'] = 'Registrarse';
 // Login
 $lang['inicio de sesion']= 'Inicio de sesion';
 $lang['usuario'] = 'Usuario';
+$lang['contraseña'] = 'Contraseña';
 $lang['no tienes cuenta'] = '¿No tienes una cuenta?';
 $lang['registrate'] = 'Registrate';
 

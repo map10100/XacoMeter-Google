@@ -1,13 +1,20 @@
 <?php
+include 'navbar.php';
+if (isset($_SESSION['idioma'])) {
+  $idioma = $_SESSION['idioma'];
+} else {
+  // Si no hay un idioma seleccionado, establecer un idioma predeterminado
+  $idioma = 'es';
+}
 
-
-$idioma = isset($_GET['lang']) ? $_GET['lang'] : 'es';
-
+// Incluir el archivo de idioma correspondiente
 $url_idioma = 'langs/' . $idioma . '.php';
 
-if(file_exists($url_idioma)){
+if (file_exists($url_idioma)) {
   include $url_idioma;
-  }
+} else {
+  echo 'Idioma no encontrado';
+}
   ?>
 
 <!DOCTYPE html>
@@ -56,18 +63,12 @@ if(file_exists($url_idioma)){
 
   <body>
     <div id="navbarContainer"></div>
-    <script>
-      fetch('navbar.php')
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('navbarContainer').innerHTML = data;
-      });
-    </script>
+   
     <div id="cuadrado">
     <form method="post" action="login_usuarios.php" >
       <img src="login.jpg"><br>
       <input type="text" class="entradaTexto" name="usuario" id="usuario" placeholder="<?php echo $lang ['usuario']; ?>"><br>
-      <input type="password" class= "entradaTexto" name="contrasena" id="contrasena" placeholder="Contraseña"><br>
+      <input type="password" class= "entradaTexto" name="contrasena" id="contrasena" placeholder="<?php echo $lang ['contraseña']; ?>"><br>
       <input type="submit" class="boton" value=<?php echo $lang ['iniciar sesion']; ?>><br>
       <p> <?php echo $lang['no tienes cuenta']; ?> <a href="registro.php"><?php echo $lang['registrate']; ?></a></p>
     </form>

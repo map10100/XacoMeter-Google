@@ -87,13 +87,11 @@ if ($result->num_rows>0){
 
   <body>
     <div id="navbarContainer"></div>
-    <script>
-      fetch('navbar.php')
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('navbarContainer').innerHTML = data;
-      });
-    </script>
+    <?php
+    
+    include 'navbar.php';
+    
+    ?>
 
     <form method="POST">
     

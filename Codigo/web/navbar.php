@@ -1,7 +1,17 @@
 <?php
+ session_start();
 
+ if (isset($_GET['lang'])) {
+  $idioma = $_GET['lang'];
 
-$idioma = isset($_GET['lang']) ? $_GET['lang'] : 'es';
+  setcookie('idioma', $idioma, time() + (86400 * 30), '/');
+
+}else{
+  $idioma = isset($_COOKIE['idioma']) ? $_COOKIE['idioma'] : 'es';
+}
+  
+  $_SESSION['idioma'] = $idioma;
+
 
 $url_idioma = 'langs/' . $idioma . '.php';
 
@@ -19,10 +29,7 @@ if(file_exists($url_idioma)){
       @media screen and (max-width:991px) {
         .idiomas{
           margin-left:29px;
-          
-
         }
-        
         
         .btn{
           margin-left: 10px;
@@ -30,7 +37,7 @@ if(file_exists($url_idioma)){
           color:#fff;
         }
         .boton:hover{
-        color:red;
+          color:red;
       }
       }
       @media screen and (min-width:992px) {
@@ -39,35 +46,40 @@ if(file_exists($url_idioma)){
           margin-top: 1%: 
       }
       
-      .boton{
-        background-color: #CCCCCC;
+        .boton{
+          background-color: #CCCCCC;
+        }
       }
-     }
-     @media screen and (min-width:1040px) {
+      @media screen and (min-width:1040px) {
         .idiomas{
-        margin-left: 106%;
+          margin-left: 106%;
+        }
+        .boton{
+          background-color: #CCCCCC;
+        }
       }
-    }
-    @media screen and (min-width:1327px) {
+      @media screen and (min-width:1481px) {
         .idiomas{
-        margin-left: 171%;
+          margin-left: 171%;
+        }
+        .boton{
+          background-color: #CCCCCC;
+        }
       }
-    }
-     
-    @media screen and (min-width:1850px) {
-      .idiomas{
-        margin-left: 1160px;
-        margin-right: 90px;
+      
+      @media screen and (min-width:1850px) {
+        .idiomas{
+          margin-left: 1160px;
+          margin-right: 90px;
+          
+        }
+        .boton{
+          background-color: #CCCCCC;
+        }
         
       }
-      .boton{
-        background-color: #CCCCCC;
-      }
-      
-    }
-
-      
       </style>
+
     <title>navbar</title>
     <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" />
     <meta charset="utf-8" />
@@ -86,7 +98,7 @@ if(file_exists($url_idioma)){
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="#" style="color: white; font-size: 20px; margin-left: 30px">
                   <?php
-                  session_start();
+                 
                   if (isset($_SESSION['username'])) {
                     echo $lang['hola '] . ' ' . $_SESSION['username'];
                   } else {
@@ -102,33 +114,28 @@ if(file_exists($url_idioma)){
                   <li><a class="dropdown-item" style="color: #fff" href="?lang=en"><?php echo $lang['ingles']; ?></a></li>
                 </ul>
               </li>
-              <!-- if(Sesion iniciada==true){
-                Button visible
-              }else{
-                button invisible
-              } -->
 
               <!-- el boton debe ir a la derecha -->
-            <li action="inicio.php">
-            <button value="Cerrar Sesion" class="boton btn my-2 my-sm-0" type="submit" style="width: 170px;  font-size: 20px;"
-              <?php
-              if (isset($_SESSION['username'])) {
-                echo 'onclick="window.location.href=\'logout.php\'"';
-              } else {
-                echo 'onclick="';
-                session_destroy();
-                echo 'window.location.href=\'login.php\'"';
-              }
-              ?>>
+              <li action="inicio.php">
+              <button value="Cerrar Sesion" class="boton btn my-2 my-sm-0" type="submit" style="width: 170px;  font-size: 20px;"
                 <?php
                 if (isset($_SESSION['username'])) {
-                  echo $lang['cerrar sesion'];
+                  echo 'onclick="window.location.href=\'logout.php\'"';
                 } else {
-                  echo $lang['inicio de sesion'];
+                  echo 'onclick="';
+                  session_destroy();
+                  echo 'window.location.href=\'login.php\'"';
                 }
-                ?>
+                ?>>
+                  <?php
+                  if (isset($_SESSION['username'])) {
+                    echo $lang['cerrar sesion'];
+                  } else {
+                    echo $lang['inicio de sesion'];
+                  }
+                  ?> 
               </button>
-            </li>
+              </li>
             </ul>
           </div>
         </div>
