@@ -52,7 +52,7 @@ if (file_exists($url_idioma)) {
             top: 69%;
             left: 36%;
             border-radius: 6px;
-            background-color: transparent;
+            background-color: #CCCCCC;
             
         }
         #registro{
@@ -62,7 +62,7 @@ if (file_exists($url_idioma)) {
             top: 69%;
             left: 55%;
             border-radius: 6px;
-            background-color: transparent;
+            background-color: #CCCCCC;
         }
       
       body {
@@ -95,7 +95,7 @@ if (file_exists($url_idioma)) {
             top: 70%;
             left: 36%;
             border-radius: 6px;
-            background-color: transparent;
+            background-color: #CCCCCC;
             
         }
         #registro{
@@ -105,7 +105,7 @@ if (file_exists($url_idioma)) {
             top: 70%;
             left: 55%;
             border-radius: 6px;
-            background-color: transparent;
+            background-color: #CCCCCC;
         }
 
         body {
@@ -134,20 +134,20 @@ if (file_exists($url_idioma)) {
             position: absolute;
             height: 50px;
             width: 200px;
-            top: 49%;
+            top: 53%;
             left: 36%;
             border-radius: 6px;
-            background-color: transparent;
+            background-color: #CCCCCC;
             
         }
         #registro{
             position: absolute;
             height: 50px;
             width: 200px;
-            top: 49%;
+            top: 53%;
             left: 53%;
             border-radius: 6px;
-            background-color: transparent;
+            background-color: #CCCCCC;
         }
       
         body {

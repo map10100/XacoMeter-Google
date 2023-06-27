@@ -25,56 +25,193 @@ if(file_exists($url_idioma)){
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <style>
+  <style>
       @media screen and (max-width:991px) {
         .idiomas{
           margin-left:29px;
         }
         
-        .btn{
-          margin-left: 10px;
+        .btnHam{
+          border: none;
           background-color:transparent;
           color:#fff;
+          margin-left:12px
         }
-        .boton:hover{
-          color:red;
-      }
+        .holaHam{
+          padding-top:0;
+        }
+        .navHam{
+        align-items: start;
+        }
+        
       }
       @media screen and (min-width:992px) {
         .idiomas{
-          margin-left: 94%;
+          margin-left: 91%;
           margin-top: 1%: 
       }
       
-        .boton{
+        .botonNav{
+          border-radius: 10px;
+          padding: 8px;
           background-color: #CCCCCC;
+          margin-top: 6%;
+        }
+        .hola{
+          padding-top:14%
+        }
+        .navbar-nav{
+          align-items:center;
         }
       }
       @media screen and (min-width:1040px) {
         .idiomas{
-          margin-left: 106%;
+          margin-left: 102%;
+          padding-top:1%;
         }
-        .boton{
+        .botonNav{
+          border-radius: 10px;
+          padding: 8px;
           background-color: #CCCCCC;
+          margin-top: 6%;
+        }
+        .hola{
+          padding-top:14%
+        }
+        .navbar-nav{
+          align-items:center;
+        }
+      }
+      @media screen and (min-width:1150px) {
+        .idiomas{
+          margin-left: 128%;
+          padding-top:1%;
+        }
+        .botonNav{
+          border-radius: 10px;
+          padding: 8px;
+          background-color: #CCCCCC;
+          margin-top: 6%;
+        }
+        .hola{
+          padding-top:14%
+        }
+        .navbar-nav{
+          align-items:center;
+        }
+      }
+      @media screen and (min-width:1230px) {
+        .idiomas{
+          margin-left: 150%;
+          padding-top:1%;
+        }
+        .botonNav{
+          border-radius: 10px;
+          padding: 8px;
+          background-color: #CCCCCC;
+          margin-top: 6%;
+        }
+        .hola{
+          padding-top:14%
+        }
+        .navbar-nav{
+          align-items:center;
+        }
+      }
+      @media screen and (min-width:1350px) {
+        .idiomas{
+          margin-left: 175%;
+          padding-top:1%;
+        }
+        .botonNav{
+          border-radius: 10px;
+          padding: 8px;
+          background-color: #CCCCCC;
+          margin-top: 6%;
+        }
+        .hola{
+          padding-top:14%
+        }
+        .navbar-nav{
+          align-items:center;
         }
       }
       @media screen and (min-width:1481px) {
         .idiomas{
-          margin-left: 171%;
+          margin-left: 200%;
+          padding-top:1%;
         }
-        .boton{
+        .botonNav{
+          border-radius: 10px;
+          padding: 8px;
+          margin-top: 6%;
           background-color: #CCCCCC;
         }
+        .hola{
+          padding-top:14%
+        }
+        .navbar-nav{
+          align-items:center;
+        }
+     
+      }
+      @media screen and (min-width:1536px) {
+        .idiomas{
+          margin-left: 215%;
+          padding-top:1%;
+        }
+        .botonNav{
+          border-radius: 10px;
+          padding: 8px;
+          margin-top: 6%;
+          background-color: #CCCCCC;
+        }
+        .hola{
+          padding-top:14%
+        }
+        .navbar-nav{
+          align-items:center;
+        }
+     
+      }
+      @media screen and (min-width:1706px) {
+        .idiomas{
+          margin-left: 250%;
+          padding-top:1%;
+        }
+        .botonNav{
+          border-radius: 10px;
+          padding: 8px;
+          margin-top: 6%;
+          background-color: #CCCCCC;
+        }
+        .hola{
+          padding-top:14%
+        }
+        .navbar-nav{
+          align-items:center;
+        }
+     
       }
       
       @media screen and (min-width:1850px) {
         .idiomas{
           margin-left: 1160px;
           margin-right: 90px;
+          padding-top:1%;
           
         }
-        .boton{
+        .botonNav{
+          border-radius: 10px;
+          padding: 8px;
           background-color: #CCCCCC;
+          margin-top: 6%;
+        }
+        .hola{
+          padding-top:14%
+        }
+        .navbar-nav{
+          align-items:center;
         }
         
       }
@@ -89,14 +226,24 @@ if(file_exists($url_idioma)){
   <body>
     <nav class="navbar navbar-dark navbar-expand-lg bg-body-tertiary bg-dark" style="height: 70px;">
         <div class="container-fluid">
-          <a class="navbar-brand" href="inicio.php" style="color: white; font-size: 25px;margin-left: 20px;">XACOMETER</a>
+          <a class="navbar-brand" style="color: white; font-size: 25px;margin-left: 20px;" 
+          <?php
+                if (isset($_SESSION['username'])) {
+                  echo 'onclick="window.location.href=\'principal.php\'"';
+                } else {
+                  echo 'onclick="';
+                  session_destroy();
+                  echo 'window.location.href=\'inicio.php\'"';
+                }
+                ?>
+                >XACOMETER</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 " style="background-color:#212529">
+            <ul class="navbar-nav me-auto mb-2 navHam" style="background-color:#212529; ">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#" style="color: white; font-size: 20px; margin-left: 30px">
+                <a class="nav-link active" aria-current="page" style="color: white; font-size: 20px; margin-left: 30px; width:122%; padding-top:8%">
                   <?php
                  
                   if (isset($_SESSION['username'])) {
@@ -117,7 +264,7 @@ if(file_exists($url_idioma)){
 
               <!-- el boton debe ir a la derecha -->
               <li action="inicio.php">
-              <button value="Cerrar Sesion" class="boton btn my-2 my-sm-0" type="submit" style="width: 170px;  font-size: 20px;"
+              <button value="Cerrar Sesion" class="botonNav btnHam " type="submit" style="width: 170px;  font-size: 20px;"
                 <?php
                 if (isset($_SESSION['username'])) {
                   echo 'onclick="window.location.href=\'logout.php\'"';
