@@ -74,7 +74,7 @@ if (file_exists($url_idioma)) {
     <?php
     if (isset($_SESSION['error'])) {
       echo "<div class='alert alert-danger' role='alert'> <strong>¡Atención!</strong> " . $_SESSION['error'] . "</div>";
-      unset($_SESSION['error']); // Limpiar el mensaje de error después de mostrarlo
+      unset($_SESSION['error']); 
   }
     ?>
     <div id="cuadrado">

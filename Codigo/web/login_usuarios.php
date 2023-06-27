@@ -30,11 +30,14 @@ if ($resultado) {
             exit;
         }
     } else {
+        session_start();
+        $_SESSION['error'] = "Usuario incorrecto";
         header("Location: login.php");
         exit;
     }
 } else {
     echo "No se pudo realizar la consulta: " . $conexion->error;
 }
+
 
 ?>
