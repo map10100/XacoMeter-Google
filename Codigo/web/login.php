@@ -15,6 +15,8 @@ if (file_exists($url_idioma)) {
 } else {
   echo 'Idioma no encontrado';
 }
+
+
   ?>
 
 <!DOCTYPE html>
@@ -37,24 +39,30 @@ if (file_exists($url_idioma)) {
         width: 25%;
         height: 50%;
         border-radius: 2%;
-        background-color: transparent;
+        background-color: rgba(255, 255, 255, 0.7);
         margin: 0 auto;
         position: absolute;
-        top: 43%;
+        top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+        
       }
       
       body {
         background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('fondo3.jpg');
         background-size: cover;
-      }
+        background-attachment: fixed;
+        background-position: center;
+        
+        } 
       form {
         position: absolute; 
         top: 50%; 
         left: 50%; 
         transform: translate(-50%, -50%); 
       }
+     
+     
     </style>
     <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" />
     <meta charset="utf-8" />
@@ -63,14 +71,19 @@ if (file_exists($url_idioma)) {
 
   <body>
     <div id="navbarContainer"></div>
-   
+    <?php
+    if (isset($_SESSION['error'])) {
+      echo "<div class='alert alert-danger' role='alert'> <strong>¡Atención!</strong> " . $_SESSION['error'] . "</div>";
+      unset($_SESSION['error']); // Limpiar el mensaje de error después de mostrarlo
+  }
+    ?>
     <div id="cuadrado">
     <form method="post" action="login_usuarios.php" >
-      <img src="login.jpg"><br>
+      <img src="login.png"><br>
       <input type="text" class="entradaTexto" name="usuario" id="usuario" placeholder="<?php echo $lang ['usuario']; ?>"><br>
       <input type="password" class= "entradaTexto" name="contrasena" id="contrasena" placeholder="<?php echo $lang ['contraseña']; ?>"><br>
       <input type="submit" class="boton" value=<?php echo $lang ['iniciar sesion']; ?>><br>
-      <p> <?php echo $lang['no tienes cuenta']; ?> <a href="registro.php"><?php echo $lang['registrate']; ?></a></p>
+      <p style="margin-top: 7%;"> <?php echo $lang['no tienes cuenta']; ?> <a href="registro.php"><?php echo $lang['registrate']; ?></a></p>
     </form>
   </div>
   </body>
