@@ -45,6 +45,8 @@ if (file_exists($url_idioma)) {
     body {
       background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('fondo3.jpg');
       background-size: cover;
+      background-attachment: fixed;
+        background-position: center;
     }
     form {
       position: absolute; 
@@ -56,11 +58,16 @@ if (file_exists($url_idioma)) {
 </head>
 <body>
   <div id="navbarContainer"></div>
-  
+  <?php
+    if (isset($_SESSION['errorR'])) {
+      echo "<div class='alert alert-danger' role='alert'> <strong>¡Atención!</strong> " . $_SESSION['errorR'] . "</div>";
+      unset($_SESSION['errorR']); 
+    }
+    ?>
   <div id="cuadrado">
 
   <form action="registro_usuarios.php" method="post">
-    <img src="login.jpg"><br>
+    <img src="login.png"><br>
     <input type="text" class= "entradaTexto" id="nombre" name="nombre" placeholder="<?php echo $lang ['nombre']; ?>"><br>
     <input type="text" class= "entradaTexto" id="apellido" name="apellido" placeholder="<?php echo $lang ['apellido']; ?>"><br>
     <input type="email" class= "entradaTexto" id="email" name="email" placeholder="<?php echo $lang ['correo']; ?>"><br>

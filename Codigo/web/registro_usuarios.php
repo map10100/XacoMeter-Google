@@ -1,5 +1,5 @@
 <?php
-
+try{
 
 $nombre =$_POST['nombre'];
 $apellido =$_POST['apellido'];
@@ -14,24 +14,28 @@ $consulta = "INSERT INTO usuarios(nombre, apellido, email, username, contrasena)
 $resultado = mysqli_query($conexion, $consulta);
 
 
+
 if($resultado){
-    echo "<script>alert('Usuario registrado exitosamente');
+    session_start();
+    $_SESSION['username'] = $username;
+    header("Location: principal.php");
+    exit;
+}
+ else{
+    session_start();
+    $_SESSION['errorR'] = "Error al realizar la inserción";
+    header("Location: registro.php");
+    exit;
+ }
 
-    </script>";
-}else{
-    echo "<script>alert('Error al registrar usuario');
-
-    </script>";
+}catch(mysqli_sql_exception $e){ session_start();
+    $_SESSION['errorR'] = "Usuario existente";
+    header("Location: registro.php");
+    exit;
 }
 
-if($conexion -> connect_error){
-    echo "Fallo la conexion".$conexion -> connect_error;
-}
 
-mysqli_close($conexion);
-session_start();
-$_SESSION['username'] = $username;
-header("location: principal.php")
+
 
 
 ?>
