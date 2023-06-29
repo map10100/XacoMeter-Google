@@ -28,9 +28,6 @@ $lang['idiomas'] = 'Languages';
 $lang['usuari@'] = 'user';
 
 
-// Informacion
-$lang['informacion'] = 'Information';
-$lang['porcentajes'] = 'Percentages';
 
 
 
@@ -39,8 +36,13 @@ $lang['principal']= 'Main page';
 $lang['busXMonu']= ' Search by monuments';
 $lang['busTodo']= ' All the monuments';
 $lang['select']='Select a monument';
-$lang['fechaInicial'] = 'Select since when;';
-$lang['fechaFinal'] = 'Select until when;';
+$lang['fechaInicial'] = 'Select since when';
+$lang['fechaFinal'] = 'Select until when';
 $lang['buscar'] = 'Search';
+
+
+// Informacion
+$lang['informacion'] = 'Information';
+$lang['porcentajes'] = 'Percentages';
 
 ?>

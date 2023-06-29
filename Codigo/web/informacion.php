@@ -1,4 +1,23 @@
 <?php
+include 'navbar.php';
+
+if (isset($_SESSION['idioma'])) {
+  $idioma = $_SESSION['idioma'];
+} else {
+  // Si no hay un idioma seleccionado, establecer un idioma predeterminado
+  $idioma = 'es';
+}
+
+// Incluir el archivo de idioma correspondiente
+$url_idioma = 'langs/' . $idioma . '.php';
+
+if (file_exists($url_idioma)) {
+  include $url_idioma;
+} else {
+  echo 'Idioma no encontrado';
+}
+
+
 require_once ('../fpdf185/fpdf.php');
 // esto es el codigo del generador del pdf
       if( isset($_POST["descargar_pdf"])){
@@ -53,7 +72,7 @@ if ($result->num_rows>0){
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title><?php echo $lang['informacion'] ?></title>
+    <title><?php echo $lang['informacion']; ?></title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="js/bootstrap.min.js"></script>
@@ -95,28 +114,26 @@ if ($result->num_rows>0){
 
   <body>
   <div id="navbarContainer"></div>
-  <?php
-    
-    include 'navbar.php';
-    
-    ?>
+  
     
     <form method="POST">
     
-    <button type="submit" name="descargar_pdf">Descargar PDF</button>
+
         <!--Recibe los datos -->
       <?php
       $datosM =$_GET['desplegable'];
       $datosF =$_GET['desplegableFI'];
       $datosFF = $_GET['desplegableFF'];
+
+
+      if ($datosF>$datosFF) {
+       header("Location: informacion.php?error=1");
+      }
             
 
       //esto es pa probar
       echo "Monumento: " . $datosM . " " . "Fecha: " . $datosF . " " . "Fecha Fin: " . $datosFF;
       ?>
-
-      
-    
 
         <!-- Grafico v -->
         <canvas id="Grafico"></canvas>
@@ -144,10 +161,14 @@ if ($result->num_rows>0){
       ?>
 
     var fechasPosteriores = <?php echo json_encode($fechas2); ?>;
+        fechasPosteriores.sort(function(a, b){
+              return new Date(a) - new Date(b);
+            });
 
-    fechasPosteriores.sort(function(a, b){
-      return new Date(a) - new Date(b);
-    });
+            if (fechasPosteriores.length ===0) {
+  document.getElementById("Grafico").innerHTML = "<div class='alert alert-danger' role='alert'> <strong>¡Atención! La información solicitada no dispone de datos para mostrar.</div>";
+}else{
+    
 
     var ctx = document.getElementById("Grafico").getContext("2d");
     var graf=new Chart(ctx, {
@@ -167,9 +188,12 @@ if ($result->num_rows>0){
           }
         }
       }
-    });
+    })
+  };
 </script>
 <!-- Grafico ^ -->
+
+<button style="background-color: #CCCCCC; border-radius:10px; height:33px; margin-top: 5%;" type="submit" name="descargar_pdf">Descargar PDF</button>
 
   </body>
 </html>

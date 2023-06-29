@@ -1,4 +1,23 @@
 <?php
+
+include 'navbar.php';
+
+if (isset($_SESSION['idioma'])) {
+  $idioma = $_SESSION['idioma'];
+} else {
+  // Si no hay un idioma seleccionado, establecer un idioma predeterminado
+  $idioma = 'es';
+}
+
+// Incluir el archivo de idioma correspondiente
+$url_idioma = 'langs/' . $idioma . '.php';
+
+if (file_exists($url_idioma)) {
+  include $url_idioma;
+} else {
+  echo 'Idioma no encontrado';
+}
+
 require_once ('../fpdf185/fpdf.php');
 // esto es el codigo del generador del pdf
       if( isset($_POST["descargar_pdf"])){
@@ -87,19 +106,17 @@ if ($result->num_rows>0){
 
   <body>
     <div id="navbarContainer"></div>
-    <?php
     
-    include 'navbar.php';
-    
-    ?>
 
     <form method="POST">
     
-    <button type="submit" name="descargar_pdf">Descargar PDF</button>
-
+    
 
     <?php
         $datosTF =$_GET['desplegableTFI'];
+
+        echo "Fecha: " . $datosTF;
+      
     ?>
     <canvas id="GraficoT"></canvas>
     <script>
@@ -151,5 +168,7 @@ if ($result->num_rows>0){
 
 
 </script>
+<button style="background-color: #CCCCCC; border-radius:10px; height:33px; margin-top: 5%;" type="submit" name="descargar_pdf">Descargar PDF</button>
+
 </body>
 </html>

@@ -75,7 +75,7 @@ if (file_exists($url_idioma)) {
     if (isset($_SESSION['error'])) {
       echo "<div class='alert alert-danger' role='alert'> <strong>¡Atención!</strong> " . $_SESSION['error'] . "</div>";
       unset($_SESSION['error']); 
-  }
+    }
     ?>
     <div id="cuadrado">
     <form method="post" action="login_usuarios.php" >

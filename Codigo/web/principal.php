@@ -1,12 +1,20 @@
 <?php
+ include 'navbar.php';
+ if (isset($_SESSION['idioma'])) {
+  $idioma = $_SESSION['idioma'];
+} else {
+  // Si no hay un idioma seleccionado, establecer un idioma predeterminado
+  $idioma = 'es';
+}
 
-$idioma = isset($_GET['lang']) ? $_GET['lang'] : 'es';
-
+// Incluir el archivo de idioma correspondiente
 $url_idioma = 'langs/' . $idioma . '.php';
 
-if(file_exists($url_idioma)){
+if (file_exists($url_idioma)) {
   include $url_idioma;
-  }
+} else {
+  echo 'Idioma no encontrado';
+}
   ?>
 
 <?php
@@ -34,7 +42,10 @@ $mysqli=new mysqli ('localhost', 'root','', 'xacometer');
         opacity: 1;
         transition: all .5s ease;
       }
-      li {
+      /* li{
+        margin-left: 25%;
+      } */
+      .lis {
         padding-left: 10px;
         font-size: 12px;
         display: inline;
@@ -70,7 +81,7 @@ $mysqli=new mysqli ('localhost', 'root','', 'xacometer');
         cursor: pointer;
         color: rgba(0,0,0);
         text-decoration: none;
-        border-bottom: solid 2px #1059FF;
+        border-bottom: solid 2px #000;
         padding-bottom: 2px;
       }
 
@@ -84,7 +95,7 @@ $mysqli=new mysqli ('localhost', 'root','', 'xacometer');
         cursor: pointer;
         color: rgba(0,0,0);
         text-decoration: none;
-        border-bottom: solid 2px #1059FF;
+        border-bottom: solid 2px #000;
         padding-bottom: 2px;
       }
 
@@ -108,29 +119,47 @@ $mysqli=new mysqli ('localhost', 'root','', 'xacometer');
   
         padding-left: 37px;
         padding-right: 37px;
-        padding-top: 55px;
+        padding-top: 45px;
         transition: opacity .5s ease, transform .5s ease;
       }
 
       .form-todo {
         
-        padding-left: 37px;
+        padding-left: 27px;
         padding-right: 37px;
         padding-top: 55px;
         position: relative;
-        top: 0px;
-        left: 400px;
+        
+        left: 490px;
         opacity: 0;
         transition: all .5s ease;
       }
       .form-xMonumento-left {
-        transform: translateX(-400px);
+        transform: translate(-600px, -80px);
         opacity: .0;
       }
 
       .form-todo-left {
-        transform: translateX(-399px);
+        transform: translate(-520px, -200px);
         opacity: 1;
+      }
+      
+      select{
+        padding-bottom: 1%;
+        border-radius:10px;
+        width: 309px;
+        margin: 2%;
+        margin-left: 7%;
+        height: 41px;
+      }
+      .boton{
+        height: 42px;
+        width: 309px;
+        border-radius: 6px;
+        margin-left: 7%;
+        margin-top: 5%;
+        border: none;
+        background-color: gray;
       }
     </style>
     <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" />
@@ -140,18 +169,14 @@ $mysqli=new mysqli ('localhost', 'root','', 'xacometer');
 
   <body>
   <div id="navbarContainer"></div>
-  <?php
-    
-    include 'navbar.php';
-    
-    ?>
+  
     <div id="cuadrado">
     <div class="top">
         <ul class="cambio">
-          <li class="xMonumento-activo"><a class="btnli">
+          <li class="xMonumento-activo lis"><a class="btnli">
             <?php echo $lang['busXMonu']; ?>
           </a></li>
-          <li class="todo-inactivo"><a class="btnli">
+          <li class="todo-inactivo lis"><a class="btnli">
             <?php echo $lang['busTodo']; ?>
           </a></li>
         </ul>
@@ -173,7 +198,7 @@ $mysqli=new mysqli ('localhost', 'root','', 'xacometer');
           <!-- https://mundocursos.online/como-mostrar-datos-mysql-en-lista-desplegable-select-en-php/ -->
           
           <!-- Desplegable fecha Inicio -->
-        <select id="desplegable_FechaI" name="desplegableFI">
+        <select id="desplegable_FechaI"  name="desplegableFI">
           <option disabled selected style="display:none;">
           <?php echo $lang['fechaInicial']; ?>
         </option>
@@ -188,7 +213,7 @@ $mysqli=new mysqli ('localhost', 'root','', 'xacometer');
 
         </select>
 <!-- Desplegable fecha fin -->
-        <select id="desplegable_FechaF" name="desplegableFF">
+        <select id="desplegable_FechaF"  name="desplegableFF">
           <option disabled selected style="display:none;">
           <?php echo $lang['fechaFinal']; ?>
         </option>
@@ -203,16 +228,16 @@ $mysqli=new mysqli ('localhost', 'root','', 'xacometer');
 
         </select>
         
-        <button type="submit"><?php echo $lang['buscar']; ?></button>
+        <button type="submit" class="boton"><?php echo $lang['buscar']; ?></button>
         
     </form>
 
     <form method="GET" action="informacion2.php" class="form-todo">
 
       <!-- Desplegable2 fecha Inicio -->
-      <select id="desplegable2_FechaI" name="desplegableTFI">
+      <select id="desplegable2_FechaI"  name="desplegableTFI">
           <option disabled selected style="display:none;">
-            <?php $lang['fechaInicial']; ?>
+            <?php echo $lang['fechaInicial']; ?>
         </option>
 
           <?php
@@ -225,7 +250,7 @@ $mysqli=new mysqli ('localhost', 'root','', 'xacometer');
 
         </select>
 
-        <button type="submit"><?php echo $lang['buscar']; ?></button>
+        <button type="submit" class="boton"><?php echo $lang['buscar']; ?></button>
 
     </form>
     </div>

@@ -157,7 +157,7 @@ if(file_exists($url_idioma)){
       }
       @media screen and (min-width:1536px) {
         .idiomas{
-          margin-left: 215%;
+          padding-left: 15%;
           padding-top:1%;
         }
         .botonNav{
@@ -217,7 +217,7 @@ if(file_exists($url_idioma)){
       }
       </style>
 
-    <title>navbar</title>
+    
     <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -243,7 +243,7 @@ if(file_exists($url_idioma)){
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 navHam" style="background-color:#212529; ">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" style="color: white; font-size: 20px; margin-left: 30px; width:122%; padding-top:8%">
+                <a class="nav-link active" aria-current="page" style="color: white; font-size: 20px; margin-left: 30px; width:200%; padding-top:8%">
                   <?php
                  
                   if (isset($_SESSION['username'])) {

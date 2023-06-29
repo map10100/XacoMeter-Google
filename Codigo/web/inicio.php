@@ -66,7 +66,8 @@ if (file_exists($url_idioma)) {
         }
       
       body {
-        background-image: url('fondo3.jpg');
+        background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('fondo3.jpg');
+          
         background-size: cover;
         background-attachment: fixed;
         background-position: center;
@@ -109,7 +110,8 @@ if (file_exists($url_idioma)) {
         }
 
         body {
-        background-image: url('fondo3.jpg');
+          background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('fondo3.jpg');
+          
         background-size: cover;
         background-attachment: fixed;
         background-position: center;
