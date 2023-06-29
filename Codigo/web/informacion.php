@@ -127,12 +127,14 @@ if ($result->num_rows>0){
 
 
       if ($datosF>$datosFF) {
-       header("Location: informacion.php?error=1");
-      }
+        echo "<div class='alert alert-danger' role='alert'> <strong>¡Atención! La información solicitada no dispone de datos para mostrar.</div>";
+
+      }else{
             
 
       //esto es pa probar
       echo "Monumento: " . $datosM . " " . "Fecha: " . $datosF . " " . "Fecha Fin: " . $datosFF;
+      
       ?>
 
         <!-- Grafico v -->
@@ -164,10 +166,6 @@ if ($result->num_rows>0){
         fechasPosteriores.sort(function(a, b){
               return new Date(a) - new Date(b);
             });
-
-            if (fechasPosteriores.length ===0) {
-  document.getElementById("Grafico").innerHTML = "<div class='alert alert-danger' role='alert'> <strong>¡Atención! La información solicitada no dispone de datos para mostrar.</div>";
-}else{
     
 
     var ctx = document.getElementById("Grafico").getContext("2d");
@@ -189,11 +187,15 @@ if ($result->num_rows>0){
         }
       }
     })
-  };
+  ;
+
 </script>
+
 <!-- Grafico ^ -->
 
 <button style="background-color: #CCCCCC; border-radius:10px; height:33px; margin-top: 5%;" type="submit" name="descargar_pdf">Descargar PDF</button>
-
+<?php
+}
+?>
   </body>
 </html>
