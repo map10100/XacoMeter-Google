@@ -45,4 +45,9 @@ $lang['buscar'] = 'Search';
 $lang['informacion'] = 'Information';
 $lang['porcentajes'] = 'Percentages';
 
+
+//Alertas
+$lang['atencion'] = 'Caution!';
+$lang['errorRR'] = 'Username already exists';
+$lang['errorR'] = 'Error whit the insertion';
 ?>

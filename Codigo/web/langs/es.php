@@ -43,4 +43,12 @@ $lang['fechaInicial'] = 'Selecciona la fecha inicial';
 $lang['fechaFinal'] = 'Selecciona la fecha final';
 $lang['buscar'] = 'Buscar';
 
+
+//Alertas
+$lang['atencion'] = '¡Atención!';
+$lang['errorRR'] = 'Usuario existente';
+$lang['errorR'] = 'Error al realizar la inserción';
+$lang['errorLC'] = 'Contraseña incorrecta';
+$lang['errorLU'] = 'Usuario no existente';
+$lang['errorLBD'] = 'Error al realizar la consulta';
 ?>
