@@ -127,7 +127,7 @@ if ($result->num_rows>0){
 
 
       if ($datosF>$datosFF) {
-        echo "<div class='alert alert-danger' role='alert'> <strong>¡Atención! La información solicitada no dispone de datos para mostrar.</div>";
+        echo "<div class='alert alert-danger' role='alert'> <strong>¡Atención! La fecha de fin debe ser posterior a la fecha de inicio.</div>";
 
       }else{
             

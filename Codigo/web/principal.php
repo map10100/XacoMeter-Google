@@ -120,28 +120,29 @@ $mysqli=new mysqli ('localhost', 'root','', 'xacometer');
         padding-left: 37px;
         padding-right: 37px;
         padding-top: 45px;
-        transition: opacity .5s ease, transform .5s ease;
       }
 
       .form-todo {
-        
-        padding-left: 27px;
+        display:none;
+        padding-left: 37px;
         padding-right: 37px;
         padding-top: 55px;
-        position: relative;
         
-        left: 490px;
         opacity: 0;
-        transition: all .5s ease;
+        
+        
       }
       .form-xMonumento-left {
-        transform: translate(-600px, -80px);
+        
         opacity: .0;
+        display: none;
+
       }
 
       .form-todo-left {
-        transform: translate(-520px, -200px);
+        display: block;
         opacity: 1;
+        
       }
       
       select{
@@ -181,7 +182,7 @@ $mysqli=new mysqli ('localhost', 'root','', 'xacometer');
           </a></li>
         </ul>
       </div>
-    <form method="GET" action="informacion.php" class="form-xMonumento">
+    <form method="GET" action="informacion.php" class="form-xMonumento" >
         <!-- Desplegable MOnumentos -->
         <select id="desplegable_Nombre" name="desplegable">
           <option disabled selected style="display:none;">
@@ -250,7 +251,7 @@ $mysqli=new mysqli ('localhost', 'root','', 'xacometer');
 
         </select>
 
-        <button type="submit" class="boton"><?php echo $lang['buscar']; ?></button>
+        <button type="submit" class="boton boton-quitado"><?php echo $lang['buscar']; ?></button>
 
     </form>
     </div>
