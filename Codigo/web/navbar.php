@@ -180,7 +180,7 @@ if(file_exists($url_idioma)){
       @media screen and (min-width:1706px) {
         .idiomas{
           /* cambiar */
-          padding-left: 250%;
+          margin-left: 160%;
           padding-top:1%;
         }
         .botonNav{
@@ -201,7 +201,7 @@ if(file_exists($url_idioma)){
       @media screen and (min-width:1850px) {
         .idiomas{
           /* cambiar */
-          padding-left: 223%;
+          margin-left: 155%;
           margin-right: 90px;
           padding-top:1%;
           
