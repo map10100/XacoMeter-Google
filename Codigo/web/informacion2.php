@@ -1,5 +1,48 @@
 <?php
 
+
+if (isset($_POST["descargar_csv"]))  {
+  
+
+$conexion = mysqli_connect("localhost", "root", "", "xacometer");
+      
+$sql = "SELECT tendencias.fecha, tendencias.porcentaje, monumentos.BICs FROM tendencias JOIN monumentos ON tendencias.id = monumentos.id";
+$result = $conexion->query($sql);
+
+ $filename = "datos.csv";
+ $file = fopen($filename, 'w');
+ if (!$file) {
+  die('No se pudo abrir el archivo.');
+}
+
+
+
+$encabezados = array ('BICs', 'Fecha', 'Porcentaje');
+fputcsv($file, $encabezados);
+
+
+
+if ($result->num_rows>0){
+  while ($row = $result->fetch_assoc()){
+  
+    $datos = array($row['BICs'], $row['fecha'], $row['porcentaje']);
+    fputcsv($file, $datos);
+  }
+
+}
+
+fclose($file);
+   
+
+    header("Content-Disposition: attachment; filename=$filename");
+    header("Content-Type: application/pdf");
+    header("Content-Length: " . filesize($filename));
+    readfile($filename);
+
+    unlink($filename);
+    $conexion->close();
+}
+
 include 'navbar.php';
 
 if (isset($_SESSION['idioma'])) {
@@ -18,57 +61,7 @@ if (file_exists($url_idioma)) {
   echo 'Idioma no encontrado';
 }
 
-require_once ('../fpdf185/fpdf.php');
-// esto es el codigo del generador del pdf
-      if( isset($_POST["descargar_pdf"])){
-
-$conexion = mysqli_connect("localhost", "root", "", "xacometer");
-      
-$sql = "SELECT tendencias.fecha, tendencias.porcentaje, monumentos.BICs FROM tendencias JOIN monumentos ON tendencias.id = monumentos.id";
-$result = $conexion->query($sql);
-
-
-$pdf = new FPDF();
-$pdf->ADDPage();
-
-// Esto lo modificas tu
-$pdf->SetFont('Arial', 'B', 14);
-$pdf->Cell(90, 10, 'Columna 1', 1);
-$pdf->Cell(40, 10, 'Columna 2', 1);
-$pdf->Cell(40, 10, 'Columna 3', 1);
-$pdf->Ln();
-
-
-
-if ($result->num_rows>0){
-  while ($row = $result->fetch_assoc()){
-    // Lo mismo
-    $pdf->SetFont('Arial', '', 12);
-    $pdf->Cell(90, 10, $row['BICs'], 1);
-    $pdf->Cell(40, 10, $row['fecha'], 1);
-    $pdf->Cell(40, 10, $row['porcentaje'], 1);
-    $pdf->Ln();
-  }
-
-}
-
-    $filename = "datos.pdf";
-    $pdf->Output($filename, 'F');
-
-
-    header("Content-Disposition: attachment; filename=$filename");
-    header("Content-Type: application/pdf");
-    header("Content-Length: " . filesize($filename));
-    readfile($filename);
-
-    unlink($filename);
-    $conexion->close();
-}
-
-
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -97,7 +90,6 @@ if ($result->num_rows>0){
         transform: translate(-50%, -50%); 
       }
 
-     
     </style>
     <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" />
     <meta charset="utf-8" />
@@ -110,12 +102,10 @@ if ($result->num_rows>0){
 
     <form method="POST">
     
-    
-
     <?php
         $datosTF =$_GET['desplegableTFI'];
 
-        echo "Fecha: " . $datosTF;
+        echo $lang['fecha']  . $datosTF;
       
     ?>
     <canvas id="GraficoT"></canvas>
@@ -137,7 +127,6 @@ if ($result->num_rows>0){
 
       }
       
-
       mysqli_close($conexion);
       ?>
 
@@ -151,9 +140,9 @@ if ($result->num_rows>0){
       data: {
         labels: monumentos,
         datasets: [{
-          label: 'Tendencias',
+          label: '<?php echo $lang['tendencias']; ?>',
           data: <?php echo json_encode ($porcentaje); ?>,
-          backgroundColor: 'rgba(0,0,0)'
+          backgroundColor: 'rgba(137,0,0)'
         }]
       },
       options: {
@@ -168,7 +157,8 @@ if ($result->num_rows>0){
 
 
 </script>
-<button style="background-color: #CCCCCC; border-radius:10px; height:33px; margin-top: 5%;" type="submit" name="descargar_pdf">Descargar PDF</button>
-
+<form>
+<input style="background-color: #CCCCCC; border-radius:10px; height:33px; margin-top: 5%;" type="submit" name="descargar_csv" value="<?php echo $lang['descarga']; ?>">
+  </form>
 </body>
 </html>
