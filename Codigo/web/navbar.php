@@ -26,6 +26,9 @@ if(file_exists($url_idioma)){
 <html lang="en">
   <head>
   <style>
+    .saludo{
+      width: 300px;
+    }
       @media screen and (max-width:991px) {
         .idiomas{
           margin-left:29px;
@@ -47,7 +50,7 @@ if(file_exists($url_idioma)){
       }
       @media screen and (min-width:992px) {
         .idiomas{
-          margin-left: 91%;
+          padding-left: 36%;
           margin-top: 1%: 
       }
       
@@ -66,7 +69,7 @@ if(file_exists($url_idioma)){
       }
       @media screen and (min-width:1040px) {
         .idiomas{
-          margin-left: 102%;
+          padding-left: 45%;
           padding-top:1%;
         }
         .botonNav{
@@ -84,7 +87,7 @@ if(file_exists($url_idioma)){
       }
       @media screen and (min-width:1150px) {
         .idiomas{
-          margin-left: 128%;
+          padding-left: 63%;
           padding-top:1%;
         }
         .botonNav{
@@ -102,7 +105,7 @@ if(file_exists($url_idioma)){
       }
       @media screen and (min-width:1230px) {
         .idiomas{
-          margin-left: 150%;
+          padding-left: 77%;
           padding-top:1%;
         }
         .botonNav{
@@ -120,7 +123,7 @@ if(file_exists($url_idioma)){
       }
       @media screen and (min-width:1350px) {
         .idiomas{
-          margin-left: 175%;
+          padding-left: 98%;
           padding-top:1%;
         }
         .botonNav{
@@ -138,7 +141,7 @@ if(file_exists($url_idioma)){
       }
       @media screen and (min-width:1481px) {
         .idiomas{
-          margin-left: 200%;
+          padding-left: 121%;
           padding-top:1%;
         }
         .botonNav{
@@ -157,7 +160,7 @@ if(file_exists($url_idioma)){
       }
       @media screen and (min-width:1536px) {
         .idiomas{
-          padding-left: 15%;
+          padding-left: 130%;
           padding-top:1%;
         }
         .botonNav{
@@ -176,7 +179,7 @@ if(file_exists($url_idioma)){
       }
       @media screen and (min-width:1706px) {
         .idiomas{
-          margin-left: 250%;
+          padding-left: 250%;
           padding-top:1%;
         }
         .botonNav{
@@ -196,7 +199,7 @@ if(file_exists($url_idioma)){
       
       @media screen and (min-width:1850px) {
         .idiomas{
-          margin-left: 1160px;
+          padding-left: 223%;
           margin-right: 90px;
           padding-top:1%;
           
@@ -226,7 +229,7 @@ if(file_exists($url_idioma)){
   <body>
     <nav class="navbar navbar-dark navbar-expand-lg bg-body-tertiary bg-dark" style="height: 70px;">
         <div class="container-fluid">
-          <a class="navbar-brand" style="color: white; font-size: 25px;margin-left: 20px;" 
+          <a class="navbar-brand" style="color: white; font-size: 25px;margin-left: 20px; cursor: context-menu" 
           <?php
                 if (isset($_SESSION['username'])) {
                   echo 'onclick="window.location.href=\'principal.php\'"';
@@ -243,7 +246,8 @@ if(file_exists($url_idioma)){
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 navHam" style="background-color:#212529; ">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" style="color: white; font-size: 20px; margin-left: 30px; width:200%; padding-top:8%">
+                <div class="saludo">
+                <a class="nav-link active" aria-current="page" style="color: white; font-size: 20px; margin-left: 30px; width:200%; padding-top:8%; cursor: context-menu">
                   <?php
                  
                   if (isset($_SESSION['username'])) {
@@ -253,6 +257,7 @@ if(file_exists($url_idioma)){
                   }
                   ?>
                 </a>
+                </div>
               </li>
               <li class="idiomas nav-item dropdown ml-auto" >
                 <a class="nav-link dropdown-toggle" href="#" role="button" style="color: white; font-size: 20px;" data-bs-toggle="dropdown" aria-expanded="false"><?php echo $lang['idiomas'] ; ?></a>
