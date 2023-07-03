@@ -176,7 +176,7 @@ if ($result->num_rows>0){
         datasets: [{
           label: 'Tendencias',
           data: <?php echo json_encode ($porcentaje); ?>,
-          backgroundColor: 'rgba(0,0,0)'
+          backgroundColor: 'rgba(137,0,0)'
         }]
       },
       options: {
