@@ -1,0 +1,19 @@
+{
+    "name": "maria/xaco-meter-google",
+    "type": "php",
+    "require": {
+        "php": "^8.2",
+        "ext-json": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Maria\\XacoMeterGoogle\\": "web/"
+        }
+    },
+    "authors": [
+        {
+            "name": "map10100",
+            "email": "map1010@alu.ubu.es"
+        }
+    ]
+}

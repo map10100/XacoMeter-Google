@@ -197,38 +197,34 @@ $mysqli=new mysqli ('localhost', 'root','', 'xacometer');
           }
           ?>
         </select>
-          <!-- https://mundocursos.online/como-mostrar-datos-mysql-en-lista-desplegable-select-en-php/ -->
-          
-          <!-- Desplegable fecha Inicio -->
-        <select id="desplegable_FechaI"  name="desplegableFI">
+          <select id="desplegable2_FechaI" name="desplegableTFI">
           <option disabled selected style="display:none;">
-          <?php echo $lang['fechaInicial']; ?>
-        </option>
+            <?php echo $lang['fechaInicial']; ?>
+          </option>
 
           <?php
-          $query2 = $mysqli->query("SELECT * FROM tendencias");
-          while ($valores2 = mysqli_fetch_array($query2)) {
-            echo '<option value="' . $valores2['fecha'] . '">' . $valores2['fecha'] . '</option>';
+          $queryT = $mysqli->query("SELECT DISTINCT fecha FROM tendencias");
+          while ($valoresT = mysqli_fetch_array($queryT)) {
+            echo '<option value="' . $valoresT['fecha'] . '">' . $valoresT['fecha'] . '</option>';
           }
           ?>
 
-
         </select>
 <!-- Desplegable fecha fin -->
-        <select id="desplegable_FechaF"  name="desplegableFF">
+        <select id="desplegable_FechaF" name="desplegableFF">
           <option disabled selected style="display:none;">
-          <?php echo $lang['fechaFinal']; ?>
-        </option>
+            <?php echo $lang['fechaFinal']; ?>
+          </option>
 
           <?php
-          $query3 = $mysqli->query("SELECT * FROM tendencias WHERE fecha > '$valores2'");
+          $query3 = $mysqli->query("SELECT DISTINCT fecha FROM tendencias");
           while ($valores3 = mysqli_fetch_array($query3)) {
             echo '<option value="' . $valores3['fecha'] . '">' . $valores3['fecha'] . '</option>';
           }
           ?>
 
-
         </select>
+
         
         <button type="submit" class="boton"><?php echo $lang['buscar']; ?></button>
         
@@ -237,20 +233,20 @@ $mysqli=new mysqli ('localhost', 'root','', 'xacometer');
     <form method="GET" action="informacion2.php" class="form-todo">
 
       <!-- Desplegable2 fecha Inicio -->
-      <select id="desplegable2_FechaI"  name="desplegableTFI">
-          <option disabled selected style="display:none;">
-            <?php echo $lang['fechaInicial']; ?>
-        </option>
+      <select id="desplegable2_FechaI" name="desplegableTFI">
+      <option disabled selected style="display:none;">
+        <?php echo $lang['fechaInicial']; ?>
+      </option>
 
-          <?php
-          $queryT = $mysqli->query("SELECT * FROM tendencias");
-          while ($valoresT = mysqli_fetch_array($queryT)) {
-            echo '<option value="' . $valoresT['fecha'] . '">' . $valoresT['fecha'] . '</option>';
-          }
-          ?>
+      <?php
+      $queryT = $mysqli->query("SELECT DISTINCT fecha FROM tendencias");
+      while ($valoresT = mysqli_fetch_array($queryT)) {
+        echo '<option value="' . $valoresT['fecha'] . '">' . $valoresT['fecha'] . '</option>';
+      }
+      ?>
 
+    </select>
 
-        </select>
 
         <button type="submit" class="boton boton-quitado"><?php echo $lang['buscar']; ?></button>
 

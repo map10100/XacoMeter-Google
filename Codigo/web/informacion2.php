@@ -5,7 +5,7 @@ if (isset($_POST["descargar_csv"]))  {
   
 
 $conexion = mysqli_connect("localhost", "root", "", "xacometer");
-$conexion->set_charset("utf8mb4");
+
       
 $sql = "SELECT tendencias.fecha, tendencias.tendencia, bics.nombre FROM tendencias JOIN bics ON tendencias.id = bics.id";
 $result = $conexion->query($sql);
@@ -115,7 +115,7 @@ if (file_exists($url_idioma)) {
 
 <?php
      $conexion = mysqli_connect("localhost", "root", "", "xacometer");
-     $conexion->set_charset("utf8mb4");
+     
      
      $consulta2 =  "SELECT tendencias.tendencia,  bics.nombre FROM tendencias JOIN bics ON tendencias.id = bics.id WHERE tendencias.fecha = '$datosTF' AND tendencias.tendencia > 0";
      $resultado2 = mysqli_query ($conexion, $consulta2);

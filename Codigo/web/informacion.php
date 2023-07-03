@@ -118,7 +118,7 @@ if (file_exists($url_idioma)) {
       // Hay que cambiarloooo
 
       $datosM =isset($_GET['desplegable'])? $_GET['desplegable']: null;
-      $datosF = isset($_GET['desplegableFI']) ? $_GET['desplegableFI']: null;
+      $datosF = isset($_GET['desplegableTFI']) ? $_GET['desplegableTFI']: null;
       $datosFF =isset($_GET['desplegableFF'])? $_GET['desplegableFF'] :null;
     
 
