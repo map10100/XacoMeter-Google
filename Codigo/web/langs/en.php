@@ -44,7 +44,12 @@ $lang['buscar'] = 'Search';
 // Informacion
 $lang['informacion'] = 'Information';
 $lang['porcentajes'] = 'Percentages';
-
+$lang['monu']= 'Monument: ';
+$lang['descarga']= 'Download csv';
+$lang['tendencias']= 'Trends';
+$lang['fecha'] = 'Date: ';
+$lang['fechaInicialT'] = 'Since ';
+$lang['fechaFinalT'] = 'Until ';
 
 //Alertas
 $lang['atencion'] = 'Caution!';

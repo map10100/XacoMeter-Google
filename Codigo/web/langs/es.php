@@ -31,8 +31,12 @@ $lang['usuari@'] = 'usuari@';
 // Informacion
 $lang['informacion'] = 'Informacion';
 $lang['porcentajes'] = 'Porcentajes';
-
-
+$lang['monu']= 'Monumento: ';
+$lang['descarga']= 'Descargar csv';
+$lang['tendencias']= 'Tendencias';
+$lang['fecha'] = 'Fecha: ';
+$lang['fechaInicialT'] = 'Desde: ';
+$lang['fechaFinalT'] = 'Hasta: ';
 
 // Principal
 $lang['principal']= 'Principal';

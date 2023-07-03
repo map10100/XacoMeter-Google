@@ -50,7 +50,7 @@ if(file_exists($url_idioma)){
       }
       @media screen and (min-width:992px) {
         .idiomas{
-          padding-left: 36%;
+          margin-left: 33%;
           margin-top: 1%: 
       }
       
@@ -69,7 +69,7 @@ if(file_exists($url_idioma)){
       }
       @media screen and (min-width:1040px) {
         .idiomas{
-          padding-left: 45%;
+          margin-left: 42%;
           padding-top:1%;
         }
         .botonNav{
@@ -87,7 +87,7 @@ if(file_exists($url_idioma)){
       }
       @media screen and (min-width:1150px) {
         .idiomas{
-          padding-left: 63%;
+          margin-left: 60%;
           padding-top:1%;
         }
         .botonNav{
@@ -105,7 +105,7 @@ if(file_exists($url_idioma)){
       }
       @media screen and (min-width:1230px) {
         .idiomas{
-          padding-left: 77%;
+          margin-left: 73%;
           padding-top:1%;
         }
         .botonNav{
@@ -123,7 +123,7 @@ if(file_exists($url_idioma)){
       }
       @media screen and (min-width:1350px) {
         .idiomas{
-          padding-left: 98%;
+          margin-left: 95%;
           padding-top:1%;
         }
         .botonNav{
@@ -141,7 +141,7 @@ if(file_exists($url_idioma)){
       }
       @media screen and (min-width:1481px) {
         .idiomas{
-          padding-left: 121%;
+          margin-left: 118%;
           padding-top:1%;
         }
         .botonNav{
@@ -160,7 +160,7 @@ if(file_exists($url_idioma)){
       }
       @media screen and (min-width:1536px) {
         .idiomas{
-          padding-left: 130%;
+          margin-left: 125%;
           padding-top:1%;
         }
         .botonNav{
@@ -179,6 +179,7 @@ if(file_exists($url_idioma)){
       }
       @media screen and (min-width:1706px) {
         .idiomas{
+          /* cambiar */
           padding-left: 250%;
           padding-top:1%;
         }
@@ -199,6 +200,7 @@ if(file_exists($url_idioma)){
       
       @media screen and (min-width:1850px) {
         .idiomas{
+          /* cambiar */
           padding-left: 223%;
           margin-right: 90px;
           padding-top:1%;
