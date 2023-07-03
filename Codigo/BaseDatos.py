@@ -27,6 +27,13 @@ cursor.execute("CREATE TABLE tendencias"
     "id INT NOT NULL,"
     "porcentaje INT NOT NULL,"
     "FOREIGN KEY (id) REFERENCES monumentos(id));")
+cursor.execute("CREATE TABLE usuarios" 
+    "(nombre VARCHAR (150) NOT NULL,"
+    "apellido VARCHAR (150) NOT NULL,"
+    "email VARCHAR (150) NOT NULL,"
+    "username VARCHAR (150) NOT NULL,"
+    "contrasena VARCHAR (150) NOT NULL,"
+    "PRIMARY KEY (username));")
 
 with open('palabras_clave.txt', 'r') as f:
     reader = csv.reader(f)

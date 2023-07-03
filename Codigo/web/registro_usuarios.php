@@ -9,7 +9,7 @@ $contrasena=$_POST['contrasena'];
 
 // $contrasenaHash = password_hash($contrasena, PASSWORD_DEFAULT);
 // $contrasenaHash en la consulta
-$conexion = new mysqli("localhost", "root", "", "usuarios");
+$conexion = new mysqli("localhost", "root", "", "xacometer");
 $consulta = "INSERT INTO usuarios(nombre, apellido, email, username, contrasena) VALUES ('$nombre', '$apellido', '$correo', '$username', '$contrasena')";
 $resultado = mysqli_query($conexion, $consulta);
 
