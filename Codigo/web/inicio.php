@@ -26,7 +26,7 @@ if (file_exists($url_idioma)) {
     <title><?php echo $lang['inicio']; ?></title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="js/bootstrap.min.js"></script>
-    
+    <meta charset="UTF-8">
     
     <style>
       @media screen and (max-width:991px) {

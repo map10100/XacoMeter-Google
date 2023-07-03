@@ -4,8 +4,9 @@
 if (isset($_POST["descargar_csv"]))  {
 
   $conexion = mysqli_connect("localhost", "root", "", "xacometer");
+  
         
-  $sql = "SELECT tendencias.fecha, tendencias.porcentaje, monumentos.BICs FROM tendencias JOIN monumentos ON tendencias.id = monumentos.id";
+  $sql = "SELECT tendencias.fecha, tendencias.tendencia, bics.nombre FROM tendencias JOIN bics ON tendencias.id = bics.id";
   $result = $conexion->query($sql);
   
    $filename = "datos.csv";
@@ -15,14 +16,14 @@ if (isset($_POST["descargar_csv"]))  {
   }
   
 
-  $encabezados = array ('BICs', 'Fecha', 'Porcentaje');
+  $encabezados = array ('nombre', 'Fecha', 'Porcentaje');
   fputcsv($file, $encabezados);
   
   
   if ($result->num_rows>0){
     while ($row = $result->fetch_assoc()){
     
-      $datos = array($row['BICs'], $row['fecha'], $row['porcentaje']);
+      $datos = array($row['nombre'], $row['fecha'], $row['tendencia']);
       fputcsv($file, $datos);
     }
   
@@ -139,8 +140,9 @@ if (file_exists($url_idioma)) {
 
   <?php
      $conexion = mysqli_connect("localhost", "root", "", "xacometer");
+     $conexion->set_charset("utf8mb4");
      
-     $consulta2 =  "SELECT  tendencias.fecha, tendencias.porcentaje FROM tendencias JOIN monumentos ON tendencias.id = monumentos.id WHERE monumentos.BICs = '$datosM' AND tendencias.fecha >= '$datosF' AND fecha <='$datosFF'";
+     $consulta2 =  "SELECT  tendencias.fecha, tendencias.tendencia FROM tendencias JOIN bics ON tendencias.id = bics.id WHERE bics.nombre = '$datosM' AND tendencias.fecha >= '$datosF' AND fecha <='$datosFF'";
      $resultado2 = mysqli_query ($conexion, $consulta2);
 
       
@@ -149,7 +151,7 @@ if (file_exists($url_idioma)) {
       $porcentajes = array();
       while ($fila2 = mysqli_fetch_assoc($resultado2)){
         $fechas2[] = $fila2['fecha'];
-        $porcentaje[] = $fila2['porcentaje'];
+        $tendencia[] = $fila2['tendencia'];
 
       }
       
@@ -170,7 +172,7 @@ if (file_exists($url_idioma)) {
         labels: fechasPosteriores,
         datasets: [{
           label: "<?php echo $lang['tendencias']; ?>",
-          data: <?php echo json_encode ($porcentaje); ?>,
+          data: <?php echo json_encode ($tendencia); ?>,
           backgroundColor: 'rgba(137,0,0)'
         }]
       },

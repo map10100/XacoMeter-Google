@@ -23,7 +23,7 @@ if (file_exists($url_idioma)) {
 <html lang="en">
   <head>
     <title><?php echo $lang['inicio de sesion'];?></title>
-    
+    <meta charset="UTF-8">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="estilos.css"> 
     <script src="js/bootstrap.min.js"></script>

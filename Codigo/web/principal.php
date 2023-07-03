@@ -20,6 +20,7 @@ if (file_exists($url_idioma)) {
 <?php
 $mysqli=new mysqli ('localhost', 'root','', 'xacometer');
 
+
 ?>
 <!DOCTYPE html>
 
@@ -28,7 +29,7 @@ $mysqli=new mysqli ('localhost', 'root','', 'xacometer');
     <title><?php echo $lang['principal']; ?></title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="js/bootstrap.min.js"></script>
-
+    <meta charset="UTF-8">
     <style>
       img {
         width: 25%; 
@@ -164,7 +165,7 @@ $mysqli=new mysqli ('localhost', 'root','', 'xacometer');
       }
     </style>
     <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" />
-    <meta charset="utf-8" />
+    
     <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
 
@@ -183,16 +184,16 @@ $mysqli=new mysqli ('localhost', 'root','', 'xacometer');
         </ul>
       </div>
     <form method="GET" action="informacion.php" class="form-xMonumento" >
-        <!-- Desplegable MOnumentos -->
+        
         <select id="desplegable_Nombre" name="desplegable">
           <option disabled selected style="display:none;">
           <?php echo $lang['select']; ?>
         </option>
 
           <?php
-          $query = $mysqli->query("SELECT * FROM monumentos");
+          $query = $mysqli->query("SELECT * FROM bics");
           while ($valores = mysqli_fetch_array($query)) {
-            echo '<option value="' . $valores['BICs'] . '">' . $valores['BICs'] . '</option>';
+            echo '<option value="' . $valores['nombre'] . '">' . $valores['nombre'] . '</option>';
           }
           ?>
         </select>

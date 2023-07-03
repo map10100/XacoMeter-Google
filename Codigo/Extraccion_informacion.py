@@ -3,6 +3,7 @@ from pytrends.request import TrendReq
 import pandas as pd
 import time
 import csv
+import codecs
 
 # Establecer el intervalo de tiempo de búsqueda
 start_date = '2009-01-01'
@@ -12,7 +13,7 @@ end_date = pd.Timestamp.today().strftime('%Y-%m-%d')
 pytrend = TrendReq(hl='es-ES', tz=360, retries=10)
 
 # Leer las palabras clave desde el archivo CSV
-with open('palabras_clave.txt', 'r') as f:
+with codecs.open('palabras_clave.txt', 'r', encoding='utf-8') as f:
     reader = csv.reader(f)
     kw_list = next(reader) 
     groups = [kw_list[i:i+5] for i in range(0, len(kw_list), 5)] # divide las palabras clave en grupos de 5
@@ -31,4 +32,4 @@ for group in groups:
 print(trend_data)
 
 # Guardar los datos en un archivo CSV
-trend_data.to_csv('tendencias.csv', index=True, header=True)
+trend_data.to_csv('tendencias.csv', index=True, header=True, encoding='utf-8')

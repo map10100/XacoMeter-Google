@@ -10,6 +10,7 @@ $contrasena=trim($_POST['contrasena']);
 
 $conexion = mysqli_connect("localhost", "root", "", "xacometer");
 
+
 $consulta = "SELECT * FROM usuarios WHERE username = '$usuario'";
 $resultado = $conexion->query($consulta);
 

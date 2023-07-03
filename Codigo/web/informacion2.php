@@ -5,8 +5,9 @@ if (isset($_POST["descargar_csv"]))  {
   
 
 $conexion = mysqli_connect("localhost", "root", "", "xacometer");
+$conexion->set_charset("utf8mb4");
       
-$sql = "SELECT tendencias.fecha, tendencias.porcentaje, monumentos.BICs FROM tendencias JOIN monumentos ON tendencias.id = monumentos.id";
+$sql = "SELECT tendencias.fecha, tendencias.tendencia, bics.nombre FROM tendencias JOIN bics ON tendencias.id = bics.id";
 $result = $conexion->query($sql);
 
  $filename = "datos.csv";
@@ -17,7 +18,7 @@ $result = $conexion->query($sql);
 
 
 
-$encabezados = array ('BICs', 'Fecha', 'Porcentaje');
+$encabezados = array ('nombre', 'Fecha', 'Porcentaje');
 fputcsv($file, $encabezados);
 
 
@@ -25,7 +26,7 @@ fputcsv($file, $encabezados);
 if ($result->num_rows>0){
   while ($row = $result->fetch_assoc()){
   
-    $datos = array($row['BICs'], $row['fecha'], $row['porcentaje']);
+    $datos = array($row['nombre'], $row['fecha'], $row['tendencia']);
     fputcsv($file, $datos);
   }
 
@@ -70,6 +71,7 @@ if (file_exists($url_idioma)) {
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="js/bootstrap.min.js"></script>
+    
     <style>
       img {
         width: 25%; 
@@ -113,24 +115,25 @@ if (file_exists($url_idioma)) {
 
 <?php
      $conexion = mysqli_connect("localhost", "root", "", "xacometer");
+     $conexion->set_charset("utf8mb4");
      
-     $consulta2 =  "SELECT tendencias.porcentaje,  monumentos.BICs FROM tendencias JOIN monumentos ON tendencias.id = monumentos.id WHERE tendencias.fecha = '$datosTF' AND tendencias.porcentaje > 0";
+     $consulta2 =  "SELECT tendencias.tendencia,  bics.nombre FROM tendencias JOIN bics ON tendencias.id = bics.id WHERE tendencias.fecha = '$datosTF' AND tendencias.tendencia > 0";
      $resultado2 = mysqli_query ($conexion, $consulta2);
 
       
 
-      $BICs = array();
+      $nombre = array();
       $porcentajes = array();
       while ($fila2 = mysqli_fetch_assoc($resultado2)){
-        $BICs[] = $fila2['BICs'];
-        $porcentaje[] = $fila2['porcentaje'];
+        $nombre[] = $fila2['nombre'];
+        $tendencia[] = $fila2['tendencia'];
 
       }
       
       mysqli_close($conexion);
       ?>
 
-      var monumentos = <?php echo json_encode($BICs); ?>;
+      var monumentos = <?php echo json_encode($nombre); ?>;
 
       
 
@@ -141,7 +144,7 @@ if (file_exists($url_idioma)) {
         labels: monumentos,
         datasets: [{
           label: '<?php echo $lang['tendencias']; ?>',
-          data: <?php echo json_encode ($porcentaje); ?>,
+          data: <?php echo json_encode ($tendencia); ?>,
           backgroundColor: 'rgba(137,0,0)'
         }]
       },
