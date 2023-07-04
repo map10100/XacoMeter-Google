@@ -114,7 +114,7 @@ if (file_exists($url_idioma)) {
     <script>
 
 <?php
-     $conexion = mysqli_connect("localhost", "root", "", "xacometer");
+     $conexion = mysqli_connect("co28d739i4m2sb7j.cbetxkdyhwsb.us-east-1.rds.amazonaws.com", "k4ibhy838gyrdfcd", "qjlckj118obcht4d", "hz99pa5q46b8bho6");
      
      
      $consulta2 =  "SELECT tendencias.tendencia,  bics.nombre FROM tendencias JOIN bics ON tendencias.id = bics.id WHERE tendencias.fecha = '$datosTF' AND tendencias.tendencia > 0";
