@@ -167,7 +167,7 @@ if (file_exists($url_idioma)) {
         <div id="navbarContainer"></div>
         <?php
     
-    include 'navbar.php';
+    include 'web/navbar.php';
     
     ?>
     <h1>Xacometer</h1>
@@ -179,10 +179,10 @@ if (file_exists($url_idioma)) {
     
     <script>
         function login() {
-            window.location.href = "login.php";            
+            window.location.href = "web/login.php";            
         }
         function registro() {
-            window.location.href = "registro.php";
+            window.location.href = "web/registro.php";
             
         }
     </script>
