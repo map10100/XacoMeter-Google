@@ -13,7 +13,7 @@
   $_SESSION['idioma'] = $idioma;
 
 
-$url_idioma = 'langs/' . $idioma . '.php';
+$url_idioma = '../langs/' . $idioma . '.php';
 
 if(file_exists($url_idioma)){
   include $url_idioma;
@@ -179,7 +179,6 @@ if(file_exists($url_idioma)){
       }
       @media screen and (min-width:1706px) {
         .idiomas{
-          /* cambiar */
           margin-left: 160%;
           padding-top:1%;
         }
