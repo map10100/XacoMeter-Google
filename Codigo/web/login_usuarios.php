@@ -8,7 +8,7 @@ $usuario=$_POST['usuario'];
 $contrasena=trim($_POST['contrasena']);
 
 
-$conexion = mysqli_connect("us-cdbr-east-06.cleardb.net", "bf3e0dec361658", "57467eec", "heroku_c70e32124a1dcb2");
+$conexion = mysqli_connect("us-cdbr-east-06.cleardb.net", "bf3e0dec361658", "", "xacometer");
 
 
 $consulta = "SELECT * FROM usuarios WHERE username = '$usuario'";
