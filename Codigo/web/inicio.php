@@ -21,7 +21,7 @@ if (file_exists($url_idioma)) {
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <title><?php echo $lang['inicio']; ?></title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
