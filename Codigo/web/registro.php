@@ -26,7 +26,7 @@ if (file_exists($url_idioma)) {
     <script src="js/bootstrap.min.js"></script>
   <style>
     body {
-      background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('fondo3.jpg');
+      background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('fondo.jpg');
       background-size: cover;
       background-attachment: fixed;
         background-position: center;
