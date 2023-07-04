@@ -18,7 +18,8 @@ if (file_exists($url_idioma)) {
   ?>
 
 <?php
-$mysqli=new mysqli ('localhost', 'root','', 'xacometer');
+$mysqli=new mysqli ("co28d739i4m2sb7j.cbetxkdyhwsb.us-east-1.rds.amazonaws.com", "k4ibhy838gyrdfcd", "qjlckj118obcht4d", "hz99pa5q46b8bho6");
+
 
 
 ?>
