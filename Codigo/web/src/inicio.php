@@ -10,7 +10,7 @@ if (isset($_SESSION['idioma'])) {
 }
 
 // Incluir el archivo de idioma correspondiente
-$url_idioma = 'langs/' . $idioma . '.php';
+$url_idioma = '../langs/' . $idioma . '.php';
 
 if (file_exists($url_idioma)) {
   include $url_idioma;
@@ -24,8 +24,8 @@ if (file_exists($url_idioma)) {
 <html lang="es">
   <head>
     <title><?php echo $lang['inicio']; ?></title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/bootstrap.min.js"></script>
     <meta charset="UTF-8">
     
     <style>
@@ -66,7 +66,7 @@ if (file_exists($url_idioma)) {
         }
       
       body {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('imagenes/fondo.jpg');
+        background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('../imagenes/fondo.jpg');
           
         background-size: cover;
         background-attachment: fixed;
@@ -110,7 +110,7 @@ if (file_exists($url_idioma)) {
         }
 
         body {
-          background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('imagenes/fondo.jpg');
+          background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('../imagenes/fondo.jpg');
           
         background-size: cover;
         background-attachment: fixed;
@@ -153,7 +153,7 @@ if (file_exists($url_idioma)) {
         }
       
         body {
-          background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('imagenes/fondo.jpg');
+          background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('../imagenes/fondo.jpg');
           background-size: cover;
           background-attachment: fixed;
           
