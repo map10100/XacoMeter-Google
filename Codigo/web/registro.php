@@ -30,13 +30,13 @@ if (file_exists($url_idioma)) {
       background-size: cover;
       background-attachment: fixed;
         background-position: center;
-    }
+      }
     form {
       position: absolute; 
       top: 50%;
       left: 50%; 
       transform: translate(-50%, -50%); 
-    }
+      }
 
 
     @media screen and (min-width:992px) {
@@ -57,7 +57,7 @@ if (file_exists($url_idioma)) {
       transform: translate(-50%, -50%);
     }
     
-  }
+    }
     @media screen and (max-width:991.20px) {
       
     img {
@@ -91,7 +91,7 @@ if (file_exists($url_idioma)) {
     }
     
     
-  }
+    }
   </style>
 </head>
 <body>
