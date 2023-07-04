@@ -8,7 +8,7 @@ if (isset($_SESSION['idioma'])) {
 }
 
 // Incluir el archivo de idioma correspondiente
-$url_idioma = 'langs/' . $idioma . '.php';
+$url_idioma = '../langs/' . $idioma . '.php';
 
 if (file_exists($url_idioma)) {
   include $url_idioma;
@@ -21,12 +21,12 @@ if (file_exists($url_idioma)) {
 <html>
 <head>
   <title><?php echo $lang['registro']?></title>
-  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
   <link rel="stylesheet" href="estilos.css" > 
-    <script src="js/bootstrap.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
   <style>
     body {
-      background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('imagenes/fondo.jpg');
+      background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('../imagenes/fondo.jpg');
       background-size: cover;
       background-attachment: fixed;
         background-position: center;
@@ -105,7 +105,7 @@ if (file_exists($url_idioma)) {
   <div id="cuadrado">
 
   <form action="registro_usuarios.php" method="post">
-    <img src="imagenes/login.png"><br>
+    <img src="../imagenes/login.png"><br>
     <input type="text" class= "entradaTexto textoA" id="nombre" name="nombre" placeholder="<?php echo $lang ['nombre']; ?>"><br>
     <input type="text" class= "entradaTexto" id="apellido" name="apellido" placeholder="<?php echo $lang ['apellido']; ?>"><br>
     <input type="email" class= "entradaTexto" id="email" name="email" placeholder="<?php echo $lang ['correo']; ?>"><br>

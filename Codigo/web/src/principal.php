@@ -8,7 +8,7 @@
 }
 
 // Incluir el archivo de idioma correspondiente
-$url_idioma = 'langs/' . $idioma . '.php';
+$url_idioma = '../langs/' . $idioma . '.php';
 
 if (file_exists($url_idioma)) {
   include $url_idioma;
@@ -28,8 +28,8 @@ $mysqli=new mysqli ("co28d739i4m2sb7j.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
 <html lang="en">
   <head>
     <title><?php echo $lang['principal']; ?></title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/bootstrap.min.js"></script>
     <meta charset="UTF-8">
     <style>
       img {
@@ -70,7 +70,7 @@ $mysqli=new mysqli ("co28d739i4m2sb7j.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
       }
       
       body {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('imagenes/fondo.jpg');
+        background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('../imagenes/fondo.jpg');
         background-size: cover;
       }
       form {
