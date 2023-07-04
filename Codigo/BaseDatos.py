@@ -5,9 +5,9 @@ from pytrends.request import TrendReq
 
 # Conexión con el servidor MySQL
 conexion = mysql.connector.connect(
-    host="us-cdbr-east-06.cleardb.net",
-    user="bf3e0dec361658",
-    password="57467eec",
+    host="co28d739i4m2sb7j.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    user="k4ibhy838gyrdfcd",
+    password="qjlckj118obcht4d",
     charset="utf8"
 )
 
