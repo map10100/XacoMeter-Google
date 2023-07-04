@@ -70,7 +70,7 @@ $mysqli=new mysqli ("co28d739i4m2sb7j.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
       }
       
       body {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('fondo.jpg');
+        background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('imagenes/fondo.jpg');
         background-size: cover;
       }
       form {
