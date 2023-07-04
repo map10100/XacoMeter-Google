@@ -153,7 +153,7 @@ if (file_exists($url_idioma)) {
         }
       
         body {
-          background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('imagenes/fondo.jpg');
+          background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('web/imagenes/fondo.jpg');
           background-size: cover;
           background-attachment: fixed;
           
