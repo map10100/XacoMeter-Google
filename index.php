@@ -1,4 +1,4 @@
 <?php
-header("Location: Codigo\web\inicio.php");
+header("Location: Codigo\web\src\inicio.php");
 exit;
 ?>

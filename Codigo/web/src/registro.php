@@ -105,7 +105,7 @@ if (file_exists($url_idioma)) {
   <div id="cuadrado">
 
   <form action="registro_usuarios.php" method="post">
-    <img src="login.png"><br>
+    <img src="imagenes/login.png"><br>
     <input type="text" class= "entradaTexto textoA" id="nombre" name="nombre" placeholder="<?php echo $lang ['nombre']; ?>"><br>
     <input type="text" class= "entradaTexto" id="apellido" name="apellido" placeholder="<?php echo $lang ['apellido']; ?>"><br>
     <input type="email" class= "entradaTexto" id="email" name="email" placeholder="<?php echo $lang ['correo']; ?>"><br>

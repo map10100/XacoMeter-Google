@@ -31,7 +31,7 @@ if (file_exists($url_idioma)) {
     <style>
 
 body {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('fondo.jpg');
+        background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('imagenes/fondo.jpg');
         background-size: cover;
         background-attachment: fixed;
         background-position: center;
@@ -126,7 +126,7 @@ body {
     ?>
     <div id="cuadrado">
     <form method="post" action="login_usuarios.php" >
-      <img src="login.png"><br>
+      <img src="imagenes/login.png"><br>
       <input type="text" class="entradaTexto textA" name="usuario" id="usuario" placeholder="<?php echo $lang ['usuario']; ?>"><br>
       <input type="password" class= "entradaTexto" name="contrasena" id="contrasena" placeholder="<?php echo $lang ['contraseña']; ?>"><br>
       <input type="submit" class="boton boton-peque" value=<?php echo $lang ['iniciar sesion']; ?>><br>
