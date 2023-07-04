@@ -10,7 +10,7 @@ if (isset($_SESSION['idioma'])) {
 }
 
 // Incluir el archivo de idioma correspondiente
-$url_idioma = 'web/langs/' . $idioma . '.php';
+$url_idioma = 'langs/' . $idioma . '.php';
 
 if (file_exists($url_idioma)) {
   include $url_idioma;
@@ -24,8 +24,8 @@ if (file_exists($url_idioma)) {
 <html lang="en">
   <head>
     <title><?php echo $lang['inicio']; ?></title>
-    <link rel="stylesheet" href="web/css/bootstrap.min.css">
-    <script src="web/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/bootstrap.min.js"></script>
     <meta charset="UTF-8">
     
     <style>
@@ -153,7 +153,7 @@ if (file_exists($url_idioma)) {
         }
       
         body {
-          background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('web/imagenes/fondo.jpg');
+          background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('imagenes/fondo.jpg');
           background-size: cover;
           background-attachment: fixed;
           
@@ -167,7 +167,7 @@ if (file_exists($url_idioma)) {
         <div id="navbarContainer"></div>
         <?php
     
-    include 'web/navbar.php';
+    include 'navbar.php';
     
     ?>
     <h1>Xacometer</h1>
@@ -179,10 +179,10 @@ if (file_exists($url_idioma)) {
     
     <script>
         function login() {
-            window.location.href = "web/login.php";            
+            window.location.href = "login.php";            
         }
         function registro() {
-            window.location.href = "web/registro.php";
+            window.location.href = "registro.php";
             
         }
     </script>
