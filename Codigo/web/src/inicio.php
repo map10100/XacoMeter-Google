@@ -9,7 +9,6 @@ if (isset($_SESSION['idioma'])) {
   $idioma = 'es';
 }
 
-// Incluir el archivo de idioma correspondiente
 $url_idioma = '../langs/' . $idioma . '.php';
 
 if (file_exists($url_idioma)) {
@@ -21,7 +20,7 @@ if (file_exists($url_idioma)) {
 
 
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
   <head>
     <title><?php echo $lang['inicio']; ?></title>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
